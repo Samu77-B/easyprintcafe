@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Print Cafe | We make printing as easy as buying your morning coffee!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="components/header.css">
+    <link rel="stylesheet" href="components/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <script>
+        // Load header component
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                
+                // Add scroll animation to header
+                const header = document.querySelector('.header');
+                if (header) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) {
+                            header.classList.add('scrolled');
+                        } else {
+                            header.classList.remove('scrolled');
+                        }
+                    });
+                }
+            });
+    </script>
+
+    <main class="main">
+        <section class="hero">
+            <h1 class="hero-title">
+                What will you <span class="highlight">print</span> today?
+            </h1>
+            <p class="hero-subtitle">
+                We make printing as <span class="highlight">easy</span> as buying your morning coffee!
+            </p>
+            <button class="btn btn-primary btn-large">Lets Go!</button>
+        </section>
+
+        <!-- Product Cards Section -->
+        <section class="products-section">
+            <div class="products-container">
+                <div class="product-card roller-banners">
+                    <h3 class="product-title">Roller Banners</h3>
+                </div>
+
+                <div class="product-card stretch-fabric">
+                    <h3 class="product-title">Stretch Fabric Stands</h3>
+                </div>
+
+                <div class="product-card light-boxes-free">
+                    <h3 class="product-title">Free Standing Light Boxes</h3>
+                </div>
+
+                <div class="product-card canvas-walls">
+                    <h3 class="product-title">Canvas Walls</h3>
+                </div>
+
+                <div class="product-card bollard-covers">
+                    <h3 class="product-title">Bollard Covers</h3>
+                </div>
+
+                <div class="product-card economy-flag">
+                    <h3 class="product-title">Economy Flag</h3>
+                </div>
+
+                <div class="product-card cafe-barriers">
+                    <h3 class="product-title">Cafe Barriers</h3>
+                </div>
+
+                <div class="product-card light-boxes">
+                    <h3 class="product-title">Light Boxes</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <script>
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
