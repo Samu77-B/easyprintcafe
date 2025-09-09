@@ -57,12 +57,30 @@
 }
 
 .nav-link {
+    position: relative;
+    padding: 5px 0;
     text-decoration: none;
     color: #000000;
     font-weight: 400;
     font-size: 0.95rem;
-    text-transform: lowercase;
+    text-transform: capitalize;
     transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Thickness of the line */
+    background-color: #597525; /* Color of the line */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active-link::after {
+    width: 100%;
 }
 
 .header.scrolled .nav-link {

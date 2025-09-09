@@ -110,9 +110,13 @@ body {
     
     .btn-large {
         padding: 0.875rem 1.75rem;
-        font-size: 1rem;
+        font-size: 1.3rem; /* Larger lettering for 768px */
         width: 100%;
         max-width: none;
+    }
+
+    .section-title {
+        font-size: 2rem;
     }
 }
 
@@ -127,6 +131,15 @@ body {
     
     .hero {
         padding: 1rem;
+    }
+    
+    .hero .btn-large {
+        padding: 1.75rem 1.75rem; /* Doubled height */
+        font-size: 1.5rem; /* Even Larger lettering for 480px */
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
     }
 }
 
@@ -164,11 +177,12 @@ body {
     background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
     border-radius: 20px;
     padding: 1.2rem;
-    text-align: center;
+    text-align: left; /* Changed to left for image placement */
     height: 120px; /* Fixed height for consistent sizing */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row; /* Changed to row */
+    justify-content: space-between; /* Space out title and image */
+    align-items: center; /* Center items vertically */
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -197,6 +211,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.product-icon {
+    height: 100px; /* Increased height */
+    width: 80px; /* Adjusted width */
+    object-fit: cover;
+    object-position: bottom; /* Focus on the bottom part of the image */
+    margin-left: 1rem;
 }
 
 .product-image img {
