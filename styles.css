@@ -58,7 +58,6 @@ body {
 
 /* Main content */
 .main {
-    min-height: auto;
     display: flex;
     flex-direction: column;
     padding-top: 80px; /* Account for fixed header */
@@ -138,9 +137,19 @@ body {
 }
 
 /* Product Cards Section */
-.products-section {
+.large-format-section {
     padding: 4rem 2rem;
     background-color: #f8f9fa;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--black);
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.2;
 }
 
 .products-container {
@@ -156,6 +165,10 @@ body {
     border-radius: 20px;
     padding: 1.2rem;
     text-align: center;
+    height: 120px; /* Fixed height for consistent sizing */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -207,6 +220,10 @@ body {
 .cafe-barriers,
 .light-boxes {
     background: linear-gradient(to top, #cc5500 0%, #ff8c42 100%);
+}
+
+.small-format-card-green {
+    background: linear-gradient(to top, var(--green) 0%, #8eb442 100%);
 }
 
 /* Responsive design for product cards */
