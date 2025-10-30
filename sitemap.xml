@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage -->
+    <url>
+        <loc>https://easyprintcafe.com/build/</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Main Pages -->
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/about.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/contact.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/faq.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/terms-conditions.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Product Pages -->
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/products.php</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/printing-services.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Solution Pages -->
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/cafe-restaurant.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/student-academic.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/corporate-office.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/events-trade-shows.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Student Services -->
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/student-print.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/cafe-affiliation.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Flag Product Pages -->
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/flags.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/feather-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/teardrop-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/fin-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/flamingo-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/crest-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Design Pages -->
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/design-guidelines.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/design-feather-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/design-teardrop-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/design-fin-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/design-flamingo-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/design-crest-flag.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Information Pages -->
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/delivery-info.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- User Account Pages -->
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/login.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/signup.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/dashboard.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://easyprintcafe.com/build/pages/file-upload.html</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+</urlset>
+

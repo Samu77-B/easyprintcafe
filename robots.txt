@@ -1,0 +1,38 @@
+# robots.txt for Easy Print Cafe
+# https://easyprintcafe.com/build/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive directories
+Disallow: /config/
+Disallow: /admin/
+Disallow: /api/auth/
+Disallow: /includes/
+Disallow: /scripts/
+Disallow: /js/cleanup-remaining-pages.js
+Disallow: /js/batch-update-pages.js
+Disallow: /js/remove-manual-loading.js
+Disallow: /js/update-pages.js
+Disallow: /debug-ai-search.html
+Disallow: /verify-header-footer.js
+
+# Disallow temporary and debug files
+Disallow: /*.log
+Disallow: /tmp/
+Disallow: /temp/
+
+# Allow important pages
+Allow: /index.html
+Allow: /pages/
+Allow: /product.php
+Allow: /images/
+Allow: /brand/
+Allow: /video/
+
+# Sitemap location
+Sitemap: https://easyprintcafe.com/build/sitemap.xml
+
+# Crawl-delay (optional - remove if not needed)
+# Crawl-delay: 1
+
