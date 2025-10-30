@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Your Fin Flag - EasyPrintCafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <script>
+        // Header component is now loaded by centralized script
+    </script>
+
+    <main class="main">
+        <!-- Breadcrumb Navigation -->
+        <section class="breadcrumb-nav">
+            <div class="breadcrumb-container">
+                <a href="../index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="large-format.html" class="breadcrumb-link">Large Format</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="flags.html" class="breadcrumb-link">Flags</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="fin-flag.html" class="breadcrumb-link">Fin Flag</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Design Your Flag</span>
+            </div>
+        </section>
+
+        <!-- Design Hero Section -->
+        <section class="design-hero">
+            <div class="design-hero-content">
+                <div class="design-hero-text">
+                    <a href="fin-flag.html" class="back-to-category">← Back to Fin Flag</a>
+                    <h1 class="design-hero-title">
+                        Design Your <span class="highlight">Fin</span> Flag
+                    </h1>
+                    <p class="design-hero-subtitle">
+                        Upload your artwork and see how it looks on your fin flag. Perfect for visualizing your design before printing.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Interface Section -->
+        <section class="design-interface">
+            <div class="design-container">
+                <div class="design-layout">
+                    <!-- Upload Section -->
+                    <div class="upload-section">
+                        <h2 class="section-title">Upload Your Artwork</h2>
+                        <div class="upload-area">
+                            <div class="upload-dropzone" id="dropzone">
+                                <div class="upload-icon">📁</div>
+                                <h3>Drag & Drop Your File Here</h3>
+                                <p>Or click to browse</p>
+                                <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                                <button class="btn btn-primary" onclick="document.getElementById('file-input').click()">Choose File</button>
+                            </div>
+                            <div class="upload-info">
+                                <p><strong>Supported formats:</strong> PDF, JPG, PNG</p>
+                                <p><strong>Max file size:</strong> 10MB</p>
+                                <p><strong>Recommended:</strong> High resolution (300 DPI)</p>
+                            </div>
+                        </div>
+                        
+                        <!-- File Info -->
+                        <div class="file-info" id="file-info" style="display: none;">
+                            <h3>Uploaded File</h3>
+                            <div class="file-details">
+                                <span class="file-name" id="file-name"></span>
+                                <span class="file-size" id="file-size"></span>
+                                <button class="btn-remove" id="remove-file">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preview Section -->
+                    <div class="preview-section">
+                        <h2 class="section-title">Preview Your Design</h2>
+                        <div class="flag-preview">
+                            <div class="flag-template">
+                                <img src="../Products/Large Format/flag_collection/flags/fin flag/fin flag.png" alt="Fin Flag Template" class="flag-template-image">
+                                <div class="design-overlay" id="design-overlay">
+                                    <img id="uploaded-image" src="" alt="Your Design" style="display: none;">
+                                </div>
+                            </div>
+                            <div class="preview-controls">
+                                <div class="control-group">
+                                    <label for="opacity-slider">Design Opacity:</label>
+                                    <input type="range" id="opacity-slider" min="0" max="100" value="100" class="slider">
+                                    <span id="opacity-value">100%</span>
+                                </div>
+                                <div class="control-group">
+                                    <label for="scale-slider">Design Scale:</label>
+                                    <input type="range" id="scale-slider" min="50" max="150" value="100" class="slider">
+                                    <span id="scale-value">100%</span>
+                                </div>
+                                <button class="btn btn-secondary" id="reset-design">Reset Design</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="design-actions">
+                    <div class="action-buttons">
+                        <button class="btn btn-outline" id="download-preview">Download Preview</button>
+                        <button class="btn btn-primary" id="proceed-to-quote">Proceed to Quote</button>
+                    </div>
+                    <p class="design-note">
+                        This is a preview only. Final printing will be done with professional equipment for the best quality.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+    
+    <script>
+        // Footer component is now loaded by centralized script
+
+        // Design Interface JavaScript (same functionality as other flag pages)
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('file-input');
+        const fileInfo = document.getElementById('file-info');
+        const fileName = document.getElementById('file-name');
+        const fileSize = document.getElementById('file-size');
+        const removeFile = document.getElementById('remove-file');
+        const uploadedImage = document.getElementById('uploaded-image');
+        const designOverlay = document.getElementById('design-overlay');
+        const opacitySlider = document.getElementById('opacity-slider');
+        const scaleSlider = document.getElementById('scale-slider');
+        const opacityValue = document.getElementById('opacity-value');
+        const scaleValue = document.getElementById('scale-value');
+        const resetDesign = document.getElementById('reset-design');
+        const downloadPreview = document.getElementById('download-preview');
+        const proceedToQuote = document.getElementById('proceed-to-quote');
+
+        let currentFile = null;
+
+        // File upload handling
+        function handleFile(file) {
+            if (!file) return;
+            
+            currentFile = file;
+            
+            // Show file info
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            fileInfo.style.display = 'block';
+            
+            // Create image preview
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                uploadedImage.src = e.target.result;
+                uploadedImage.style.display = 'block';
+                designOverlay.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Drag and drop functionality
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('dragover');
+        });
+
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('dragover');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        dropzone.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        // Remove file
+        removeFile.addEventListener('click', () => {
+            currentFile = null;
+            fileInfo.style.display = 'none';
+            uploadedImage.style.display = 'none';
+            designOverlay.style.display = 'none';
+            fileInput.value = '';
+        });
+
+        // Opacity control
+        opacitySlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            opacityValue.textContent = value + '%';
+            uploadedImage.style.opacity = value / 100;
+        });
+
+        // Scale control
+        scaleSlider.addEventListener('input', (e) => {
+            const value = e.target.value;
+            scaleValue.textContent = value + '%';
+            uploadedImage.style.transform = `scale(${value / 100})`;
+        });
+
+        // Reset design
+        resetDesign.addEventListener('click', () => {
+            opacitySlider.value = 100;
+            scaleSlider.value = 100;
+            opacityValue.textContent = '100%';
+            scaleValue.textContent = '100%';
+            uploadedImage.style.opacity = '1';
+            uploadedImage.style.transform = 'scale(1)';
+        });
+
+        // Download preview
+        downloadPreview.addEventListener('click', () => {
+            if (!currentFile) {
+                alert('Please upload a file first.');
+                return;
+            }
+            
+            // Create canvas with flag template and uploaded image
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const flagTemplate = document.querySelector('.flag-template-image');
+            
+            canvas.width = flagTemplate.naturalWidth || 800;
+            canvas.height = flagTemplate.naturalHeight || 600;
+            
+            // Draw flag template
+            ctx.drawImage(flagTemplate, 0, 0, canvas.width, canvas.height);
+            
+            // Draw uploaded image with current settings
+            if (uploadedImage.src) {
+                ctx.globalAlpha = parseFloat(uploadedImage.style.opacity) || 1;
+                const scale = parseFloat(uploadedImage.style.transform.match(/scale\(([^)]+)\)/)?.[1]) || 1;
+                const imgWidth = uploadedImage.naturalWidth * scale;
+                const imgHeight = uploadedImage.naturalHeight * scale;
+                const x = (canvas.width - imgWidth) / 2;
+                const y = (canvas.height - imgHeight) / 2;
+                
+                ctx.drawImage(uploadedImage, x, y, imgWidth, imgHeight);
+            }
+            
+            // Download
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'fin-flag-preview.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+        });
+
+        // Proceed to quote
+        proceedToQuote.addEventListener('click', () => {
+            if (!currentFile) {
+                alert('Please upload your artwork first.');
+                return;
+            }
+            
+            // In a real application, this would save the design and redirect to quote page
+            alert('Design saved! Redirecting to quote page...');
+            // window.location.href = 'quote.html?design=fin-flag';
+        });
+
+        // Utility functions
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+    </script>
+</body>
+</html>

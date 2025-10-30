@@ -1,0 +1,64 @@
+═══════════════════════════════════════════════════════════
+  UPLOAD CHECKLIST - Header/Footer Fix
+═══════════════════════════════════════════════════════════
+
+📦 FILES TO UPLOAD (2 files):
+   
+   ✓ js/header-init.js
+   ✓ js/footer-init.js
+
+─────────────────────────────────────────────────────────
+
+📋 UPLOAD STEPS:
+
+   [ ] 1. Connect to your server (FTP/SFTP/cPanel)
+   
+   [ ] 2. Navigate to: public_html/js/ (or your root /js/ folder)
+   
+   [ ] 3. Upload header-init.js (overwrite existing)
+   
+   [ ] 4. Upload footer-init.js (overwrite existing)
+   
+   [ ] 5. Verify files uploaded successfully
+   
+   [ ] 6. Clear your browser cache (Ctrl+Shift+Delete)
+
+─────────────────────────────────────────────────────────
+
+🧪 TEST AFTER UPLOAD:
+
+   [ ] Test: https://your-domain.com/product.php?slug=feather-flag
+        → Header visible? ___
+        → Footer visible? ___
+   
+   [ ] Test: https://your-domain.com/pages/products.php
+        → Header visible? ___
+        → Footer visible? ___
+   
+   [ ] Test: Any other product page
+        → Header visible? ___
+        → Footer visible? ___
+
+─────────────────────────────────────────────────────────
+
+✅ SUCCESS CRITERIA:
+
+   • Header displays at top of product pages
+   • Footer displays at bottom of product pages
+   • Navigation menus work correctly
+   • No console errors (check F12)
+   • All links in header/footer work
+
+─────────────────────────────────────────────────────────
+
+⚠️ TROUBLESHOOTING:
+
+   If header/footer still not showing:
+   
+   1. Hard refresh: Ctrl+F5 (Windows) or Cmd+Shift+R (Mac)
+   2. Check browser console (F12) for errors
+   3. Verify files in correct directory on server
+   4. Check file permissions: 644
+
+═══════════════════════════════════════════════════════════
+

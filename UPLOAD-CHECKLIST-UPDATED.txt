@@ -1,0 +1,98 @@
+═══════════════════════════════════════════════════════════
+  UPLOAD CHECKLIST - Header/Footer Fix (UPDATED for /build/)
+═══════════════════════════════════════════════════════════
+
+📦 FILES TO UPLOAD:
+   
+   JAVASCRIPT (MUST UPLOAD - These have been updated):
+   ✓ js/header-init.js        → /build/js/header-init.js
+   ✓ js/footer-init.js        → /build/js/footer-init.js
+   
+   COMPONENTS (Upload if not already on server):
+   ○ components/header.html   → /build/components/header.html
+   ○ components/footer.html   → /build/components/footer.html
+   ○ components/header.css    → /build/components/header.css
+   ○ components/footer.css    → /build/components/footer.css
+
+─────────────────────────────────────────────────────────
+
+📋 UPLOAD STEPS:
+
+   [ ] 1. Connect to your server (FTP/SFTP/cPanel)
+   
+   [ ] 2. Navigate to: public_html/build/
+   
+   [ ] 3. Go to js/ folder and upload:
+           - header-init.js (OVERWRITE existing)
+           - footer-init.js (OVERWRITE existing)
+   
+   [ ] 4. Go to components/ folder and verify these exist:
+           - header.html
+           - footer.html
+           - header.css
+           - footer.css
+           If missing, upload them
+   
+   [ ] 5. Verify supporting folders exist:
+           - /build/brand/ (with logos)
+           - /build/api/
+           - /build/pages/
+   
+   [ ] 6. Clear your browser cache (Ctrl+Shift+Delete)
+
+─────────────────────────────────────────────────────────
+
+🧪 TEST AFTER UPLOAD:
+
+   [ ] Test: https://easyprintcafe.com/build/product.php?slug=feather-flag
+        → Header visible? ___
+        → Footer visible? ___
+        → No 404 in console? ___
+   
+   [ ] Test: https://easyprintcafe.com/build/pages/products.php
+        → Header visible? ___
+        → Footer visible? ___
+        → Links work? ___
+   
+   [ ] Test: https://easyprintcafe.com/build/
+        → Header visible? ___
+        → Footer visible? ___
+   
+   [ ] Open Browser Console (F12):
+        → No errors? ___
+        → Components loading? ___
+
+─────────────────────────────────────────────────────────
+
+✅ SUCCESS CRITERIA:
+
+   • Header displays on all pages
+   • Footer displays on all pages
+   • No 404 errors in console
+   • Navigation menus work
+   • Logos display correctly
+   • All links functional
+
+─────────────────────────────────────────────────────────
+
+⚠️ TROUBLESHOOTING:
+
+   If header/footer still not showing:
+   
+   1. Hard refresh: Ctrl+F5 or Cmd+Shift+R
+   2. Check console (F12) for specific errors
+   3. Verify file paths:
+      - JS files in /build/js/
+      - Components in /build/components/
+   4. Check file permissions: 644
+   5. Verify components/header.html exists on server
+
+═══════════════════════════════════════════════════════════
+
+IMPORTANT NOTE:
+The files have been updated to work with your /build/ 
+subdirectory installation. Make sure you upload to the 
+correct location: /build/ NOT the root directory.
+
+═══════════════════════════════════════════════════════════
+

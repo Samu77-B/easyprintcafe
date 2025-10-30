@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Your Feather Flag - EasyPrintCafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+        /* Design Page Specific Styles */
+        .design-page {
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+
+        .design-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .design-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .design-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .design-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .design-interface {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .upload-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: #597525;
+            background: #f8f9fa;
+        }
+
+        .upload-area.dragover {
+            border-color: #597525;
+            background: #f0f4e8;
+        }
+
+        .upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .upload-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .upload-button {
+            background: #597525;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .upload-button:hover {
+            background: #4a5f1f;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .preview-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .preview-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .flag-preview {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flag-template {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-image-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            display: none;
+            cursor: move;
+            transition: all 0.2s ease;
+        }
+
+        .user-image-container:hover {
+            box-shadow: 0 0 0 2px rgba(89, 117, 37, 0.3);
+        }
+
+        .user-image-container.dragging {
+            cursor: grabbing;
+            box-shadow: 0 0 0 3px rgba(89, 117, 37, 0.5);
+            transform: scale(1.02);
+        }
+
+        .user-image {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid #597525;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .resize-handle {
+            position: absolute;
+            background: #597525;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+        }
+
+        .resize-handle.nw {
+            top: -6px;
+            left: -6px;
+            cursor: nw-resize;
+        }
+
+        .resize-handle.ne {
+            top: -6px;
+            right: -6px;
+            cursor: ne-resize;
+        }
+
+        .resize-handle.sw {
+            bottom: -6px;
+            left: -6px;
+            cursor: sw-resize;
+        }
+
+        .resize-handle.se {
+            bottom: -6px;
+            right: -6px;
+            cursor: se-resize;
+        }
+
+        .resize-handle.n {
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: n-resize;
+        }
+
+        .resize-handle.s {
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: s-resize;
+        }
+
+        .resize-handle.w {
+            top: 50%;
+            left: -6px;
+            transform: translateY(-50%);
+            cursor: w-resize;
+        }
+
+        .resize-handle.e {
+            top: 50%;
+            right: -6px;
+            transform: translateY(-50%);
+            cursor: e-resize;
+        }
+
+        .preview-instructions {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .preview-instructions p {
+            margin: 0.25rem 0;
+        }
+
+        .flag-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .file-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .file-name {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .remove-file {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .design-interface {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .design-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <script>
+        // Header component is now loaded by centralized script (header-init.js)
+    </script>
+
+    <main class="design-page">
+        <div class="design-container">
+            <!-- Design Header -->
+            <div class="design-header">
+                <h1 class="design-title">Design Your Feather Flag</h1>
+                <p class="design-subtitle">
+                    Upload your artwork and see how it looks on your feather flag. 
+                    Perfect for visualizing your design before printing.
+                    </p>
+                </div>
+
+            <!-- Design Interface -->
+            <div class="design-interface">
+                    <!-- Upload Section -->
+                    <div class="upload-section">
+                    <h2 class="upload-title">Upload Your Artwork</h2>
+                    <div class="upload-area" id="upload-area">
+                                <div class="upload-icon">📁</div>
+                        <div class="upload-text">Drag & Drop Your File Here</div>
+                        <div class="upload-text">Or click to browse</div>
+                        <button class="upload-button" onclick="document.getElementById('file-input').click()">
+                            Choose File
+                        </button>
+                        <input type="file" id="file-input" class="file-input" accept=".jpg,.jpeg,.png,.pdf">
+                        </div>
+                        
+                    <div class="file-info" id="file-info">
+                                <span class="file-name" id="file-name"></span>
+                        <button class="remove-file" id="remove-file">Remove</button>
+                        </div>
+                    </div>
+
+                    <!-- Preview Section -->
+                    <div class="preview-section">
+                    <h2 class="preview-title">Preview Your Design</h2>
+                        <div class="flag-preview">
+                            <div class="flag-template">
+                            <div class="user-image-container" id="user-image-container">
+                                <img id="user-image" class="user-image" alt="Your Design">
+                                <div class="resize-handle nw"></div>
+                                <div class="resize-handle ne"></div>
+                                <div class="resize-handle sw"></div>
+                                <div class="resize-handle se"></div>
+                                <div class="resize-handle n"></div>
+                                <div class="resize-handle s"></div>
+                                <div class="resize-handle w"></div>
+                                <div class="resize-handle e"></div>
+                                </div>
+                            <img src="../Products/Large Format/flag_collection/flags/feather flag/feather-flag-drawing.png" 
+                                 class="flag-overlay" 
+                                 alt="Feather Flag Template">
+                                </div>
+                            </div>
+                    <div class="preview-instructions" id="preview-instructions" style="display: none;">
+                        <p><strong>💡 Tips:</strong></p>
+                        <p>• <strong>Drag</strong> the image to move it around</p>
+                        <p>• <strong>Use the handles</strong> to resize the image</p>
+                        <p>• <strong>Corner handles</strong> resize proportionally</p>
+                        <p>• <strong>Edge handles</strong> resize in one direction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+    
+    <script>
+        // Footer component is now loaded by centralized script (footer-init.js)
+
+        // Design Interface JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.getElementById('upload-area');
+            const fileInput = document.getElementById('file-input');
+            const userImage = document.getElementById('user-image');
+            const userImageContainer = document.getElementById('user-image-container');
+            const fileInfo = document.getElementById('file-info');
+            const fileName = document.getElementById('file-name');
+            const removeFile = document.getElementById('remove-file');
+            const previewInstructions = document.getElementById('preview-instructions');
+
+            let isDragging = false;
+            let isResizing = false;
+            let currentHandle = null;
+            let startX, startY, startWidth, startHeight, startLeft, startTop;
+
+        // File upload handling
+        function handleFile(file) {
+            if (!file) return;
+            
+            // Show file info
+            fileName.textContent = file.name;
+            fileInfo.style.display = 'block';
+            
+            // Create image preview
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                    userImage.src = e.target.result;
+                    userImageContainer.style.display = 'block';
+                    previewInstructions.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Drag and drop functionality
+            uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+                uploadArea.classList.add('dragover');
+        });
+
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+        });
+
+            uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+                uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+            // Click to upload
+            uploadArea.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'BUTTON') {
+                    fileInput.click();
+                }
+            });
+
+            // File input change
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFile(e.target.files[0]);
+                }
+            });
+
+            // Remove file
+            removeFile.addEventListener('click', () => {
+                fileInfo.style.display = 'none';
+                userImageContainer.style.display = 'none';
+                previewInstructions.style.display = 'none';
+                userImage.src = '';
+                fileInput.value = '';
+            });
+
+            // Drag functionality for moving the image
+            userImageContainer.addEventListener('mousedown', (e) => {
+                if (e.target.classList.contains('resize-handle')) return;
+                isDragging = true;
+                userImageContainer.classList.add('dragging');
+                startX = e.clientX;
+                startY = e.clientY;
+                const rect = userImageContainer.getBoundingClientRect();
+                startLeft = rect.left;
+                startTop = rect.top;
+                e.preventDefault();
+            });
+
+            // Resize functionality
+            document.querySelectorAll('.resize-handle').forEach(handle => {
+                handle.addEventListener('mousedown', (e) => {
+                    isResizing = true;
+                    currentHandle = handle.classList[1]; // Get the direction (nw, ne, etc.)
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    startWidth = userImage.offsetWidth;
+                    startHeight = userImage.offsetHeight;
+                    const rect = userImageContainer.getBoundingClientRect();
+                    startLeft = rect.left;
+                    startTop = rect.top;
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+            });
+
+            // Mouse move handler
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const deltaX = e.clientX - startX;
+                    const deltaY = e.clientY - startY;
+                    const newLeft = startLeft + deltaX;
+                    const newTop = startTop + deltaY;
+                    
+                    // Keep within bounds
+                    const container = document.querySelector('.flag-preview');
+                    const containerRect = container.getBoundingClientRect();
+                    const imageRect = userImageContainer.getBoundingClientRect();
+                    
+                    const maxLeft = containerRect.right - imageRect.width;
+                    const maxTop = containerRect.bottom - imageRect.height;
+                    
+                    userImageContainer.style.left = Math.max(containerRect.left, Math.min(newLeft, maxLeft)) + 'px';
+                    userImageContainer.style.top = Math.max(containerRect.top, Math.min(newTop, maxTop)) + 'px';
+                    userImageContainer.style.transform = 'none';
+                }
+                
+                if (isResizing && currentHandle) {
+                    const deltaX = e.clientX - startX;
+                    const deltaY = e.clientY - startY;
+                    
+                    let newWidth = startWidth;
+                    let newHeight = startHeight;
+                    
+                    // Calculate new dimensions based on handle
+                    if (currentHandle.includes('e')) newWidth = startWidth + deltaX;
+                    if (currentHandle.includes('w')) newWidth = startWidth - deltaX;
+                    if (currentHandle.includes('s')) newHeight = startHeight + deltaY;
+                    if (currentHandle.includes('n')) newHeight = startHeight - deltaY;
+                    
+                    // Maintain aspect ratio for corner handles
+                    if (currentHandle.length === 2) {
+                        const aspectRatio = startWidth / startHeight;
+                        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                            newHeight = newWidth / aspectRatio;
+                        } else {
+                            newWidth = newHeight * aspectRatio;
+                        }
+                    }
+                    
+                    // Set minimum size
+                    newWidth = Math.max(50, newWidth);
+                    newHeight = Math.max(50, newHeight);
+                    
+                    userImage.style.width = newWidth + 'px';
+                    userImage.style.height = newHeight + 'px';
+                }
+            });
+
+            // Mouse up handler
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                isResizing = false;
+                currentHandle = null;
+                userImageContainer.classList.remove('dragging');
+            });
+        });
+    </script>
+</body>
+</html>

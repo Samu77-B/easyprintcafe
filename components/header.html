@@ -1,18 +1,127 @@
 <header class="header">
     <nav class="nav">
         <div class="nav-brand">
-            <img src="brand/epc - desktop.png" alt="Easy Print Cafe" class="logo-desktop">
-            <img src="brand/epc - mobile.png" alt="Easy Print Cafe" class="logo-mobile">
+            <a href="index.html" class="logo-link">
+                <img src="brand/epc - desktop.png" alt="Easy Print Cafe" class="logo-desktop" data-logo="desktop">
+                <img src="brand/epc - mobile.png" alt="Easy Print Cafe" class="logo-mobile" data-logo="mobile">
+            </a>
         </div>
-        <div class="nav-links">
-            <a href="../index.html" class="nav-link">about</a>
-            <a href="../pages/services.html" class="nav-link">Services</a>
-            <a href="../pages/students.html" class="nav-link">Students</a>
-            <a href="../pages/contact.html" class="nav-link">Contact</a>
+        
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle mobile menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-links desktop-nav">
         </div>
-        <div class="nav-actions">
-            <button class="btn btn-outline">sign up</button>
-            <button class="btn btn-primary">log in</button>
+        
+        <!-- Desktop Actions -->
+        <div class="nav-actions desktop-nav">
+            <a href="pages/about.html" class="nav-link">About</a>
+            
+            <!-- Products Dropdown -->
+            <div class="dropdown">
+                <button class="dropdown-toggle nav-link">Products</button>
+                <div class="dropdown-content mega-menu">
+                    <div class="mega-menu-header">
+                        <h3>Our Products</h3>
+                        <a href="pages/products.php" class="view-all-link">View All →</a>
+                    </div>
+                    <div class="mega-menu-columns">
+                        <!-- Large Format Column -->
+                        <div class="mega-menu-column">
+                            <h4 class="column-title">Large Format</h4>
+                            <a href="pages/feather-flag.html" class="mega-menu-item">Feather Flags</a>
+                            <a href="pages/teardrop-flag.html" class="mega-menu-item">Teardrop Flags</a>
+                            <a href="pages/products.php?category=flags-banners" class="mega-menu-item">Crest Flags</a>
+                            <a href="pages/products.php?category=flags-banners" class="mega-menu-item">Fin Flags</a>
+                            <a href="pages/products.php?category=flags-banners" class="mega-menu-item">Flamingo Flags</a>
+                            <a href="pages/printing-services.html" class="mega-menu-item">Roller Banners</a>
+                            <a href="pages/products.php?category=exhibition-displays" class="mega-menu-item">Exhibition Displays</a>
+                            <a href="pages/products.php?category=outdoor-signage" class="mega-menu-item">Outdoor Signage</a>
+                        </div>
+                        
+                        <!-- Small Format Column -->
+                        <div class="mega-menu-column">
+                            <h4 class="column-title">Small Format</h4>
+                            <a href="pages/printing-services.html" class="mega-menu-item">Business Cards</a>
+                            <a href="pages/printing-services.html" class="mega-menu-item">Flyers & Leaflets</a>
+                            <a href="pages/printing-services.html" class="mega-menu-item">Booklets & Magazines</a>
+                            <a href="pages/printing-services.html" class="mega-menu-item">Letterheads</a>
+                            <a href="pages/printing-services.html" class="mega-menu-item">Compliment Slips</a>
+                            <a href="pages/printing-services.html" class="mega-menu-item">Posters</a>
+                            <a href="pages/printing-services.html" class="mega-menu-item">Stickers</a>
+                            <a href="pages/products.php?category=small-format" class="mega-menu-item">View More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Solutions Dropdown -->
+            <div class="dropdown">
+                <button class="dropdown-toggle nav-link">Solutions</button>
+                <div class="dropdown-content">
+                    <a href="pages/cafe-restaurant.html" class="dropdown-item" data-search="Cafe & Restaurant">
+                        Cafe & Restaurant
+                    </a>
+                    <a href="pages/student-academic.html" class="dropdown-item" data-search="Student & Academic">
+                        Student & Academic
+                    </a>
+                    <a href="pages/corporate-office.html" class="dropdown-item" data-search="Corporate Office">
+                        Corporate Office
+                    </a>
+                    <a href="pages/events-trade-shows.html" class="dropdown-item" data-search="Events & Trade Shows">
+                        Events & Trade Shows
+                    </a>
+                </div>
+            </div>
+            <!-- EasyPrint Students link hidden -->
+            <!-- <a href="pages/student-print.html" class="nav-link">EasyPrint Students</a> -->
+            <a href="pages/contact.html" class="nav-link">Contact</a>
+            <a href="pages/terms-conditions.html" class="nav-link">Terms</a>
+            <a href="pages/dashboard.html" class="nav-link" id="dashboard-link" style="display: none;">Dashboard</a>
+            <button class="btn btn-primary" id="login-btn">log in</button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-content">
+                <a href="pages/about.html" class="mobile-nav-link">About</a>
+                
+                <!-- Mobile Products Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="mobile-nav-link mobile-dropdown-toggle" id="mobile-products-toggle">Products</button>
+                    <div class="mobile-dropdown-content" id="mobile-products-content">
+                        <a href="pages/products.php" class="mobile-dropdown-item" style="font-weight: 600;">All Products</a>
+                        <a href="pages/products.php?category=flags-banners" class="mobile-dropdown-item">Flags & Banners</a>
+                        <a href="pages/products.php?category=exhibition-displays" class="mobile-dropdown-item">Exhibition Displays</a>
+                        <a href="pages/products.php?category=small-format" class="mobile-dropdown-item">Small Format Printing</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile Solutions Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="mobile-nav-link mobile-dropdown-toggle" id="mobile-solutions-toggle">Solutions</button>
+                    <div class="mobile-dropdown-content" id="mobile-solutions-content">
+                        <a href="pages/cafe-restaurant.html" class="mobile-dropdown-item">Cafe & Restaurant</a>
+                        <a href="pages/student-academic.html" class="mobile-dropdown-item">Student & Academic</a>
+                        <a href="pages/corporate-office.html" class="mobile-dropdown-item">Corporate Office</a>
+                        <a href="pages/events-trade-shows.html" class="mobile-dropdown-item">Events & Trade Shows</a>
+                    </div>
+                </div>
+                <!-- EasyPrint Students link hidden -->
+                <!-- <a href="pages/student-print.html" class="mobile-nav-link">EasyPrint Students</a> -->
+                <a href="pages/contact.html" class="mobile-nav-link">Contact</a>
+                <a href="pages/terms-conditions.html" class="mobile-nav-link">Terms</a>
+                <a href="pages/dashboard.html" class="mobile-nav-link" id="mobile-dashboard-link" style="display: none;">Dashboard</a>
+                <div class="mobile-nav-actions">
+                    <button class="btn btn-primary mobile-btn" id="mobile-login-btn">Log In</button>
+                </div>
+            </div>
         </div>
     </nav>
 </header>
+

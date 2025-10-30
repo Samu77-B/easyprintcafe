@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Guidelines | Easy Print Cafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+        .guidelines-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .guidelines-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .guidelines-header h1 {
+            color: #597525;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .guidelines-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .guidelines-section {
+            margin-bottom: 3rem;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #597525;
+        }
+        
+        .guidelines-section h2 {
+            color: #597525;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .guidelines-section h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+        
+        .guidelines-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .guidelines-section ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .guidelines-section li {
+            margin-bottom: 0.5rem;
+            color: #444;
+            line-height: 1.5;
+        }
+        
+        .file-format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .format-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            transition: border-color 0.3s ease;
+        }
+        
+        .format-card:hover {
+            border-color: #597525;
+        }
+        
+        .format-card h4 {
+            color: #597525;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .format-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .resolution-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resolution-table th {
+            background: #597525;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .resolution-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #444;
+        }
+        
+        .resolution-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .color-info {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .color-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .color-info p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .color-info ul {
+            margin-bottom: 0;
+        }
+        
+        .color-info li {
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .bleed-info {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .bleed-info h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+        
+        .bleed-info p {
+            color: #856404;
+            margin-bottom: 0;
+        }
+        
+        .tips-section {
+            background: #e8f5e8;
+            border: 2px solid #8eb442;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .tips-section h3 {
+            color: #597525;
+            margin-bottom: 1rem;
+        }
+        
+        .tips-section ul {
+            margin-bottom: 0;
+        }
+        
+        .tips-section li {
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .download-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .download-section p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .download-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .download-btn:hover {
+            background: white;
+            color: #597525;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .guidelines-container {
+                padding: 1rem;
+            }
+            
+            .guidelines-header h1 {
+                font-size: 2rem;
+            }
+            
+            .guidelines-section {
+                padding: 1.5rem;
+            }
+            
+            .file-format-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resolution-table {
+                font-size: 0.9rem;
+            }
+            
+            .resolution-table th,
+            .resolution-table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <main class="main">
+        <div class="guidelines-container">
+            <div class="guidelines-header">
+                <h1>Design <span class="highlight">Guidelines</span></h1>
+                <p>Follow these guidelines to ensure your print projects look their best. Proper file preparation saves time and ensures optimal print quality.</p>
+            </div>
+            
+            <div class="guidelines-section">
+                <h2>File Formats</h2>
+                <p>We accept various file formats, but some work better than others for printing. Here's our recommended hierarchy:</p>
+                
+                <div class="file-format-grid">
+                    <div class="format-card">
+                        <h4>PDF (Preferred)</h4>
+                        <p>Best for print-ready files. Embed all fonts and images. Use high-quality settings.</p>
+                    </div>
+                    
+                    <div class="format-card">
+                        <h4>AI (Adobe Illustrator)</h4>
+                        <p>Perfect for vector graphics, logos, and scalable designs. Include all linked files.</p>
+                    </div>
+                    
+                    <div class="format-card">
+                        <h4>PSD (Adobe Photoshop)</h4>
+                        <p>Great for photo editing and raster images. Save with layers if needed for adjustments.</p>
+                    </div>
+                    
+                    <div class="format-card">
+                        <h4>EPS (Encapsulated PostScript)</h4>
+                        <p>Good for vector graphics and logos. Ensure all fonts are outlined.</p>
+                    </div>
+                    
+                    <div class="format-card">
+                        <h4>JPG/JPEG</h4>
+                        <p>Acceptable for photos only. Use maximum quality settings (90-100%).</p>
+                    </div>
+                    
+                    <div class="format-card">
+                        <h4>PNG</h4>
+                        <p>Good for images with transparency. Use high resolution for best results.</p>
+                    </div>
+                </div>
+                
+                <h3>File Format Requirements</h3>
+                <ul>
+                    <li><strong>Always embed fonts</strong> or convert text to outlines</li>
+                    <li><strong>Include all linked images</strong> in your file package</li>
+                    <li><strong>Use CMYK color mode</strong> for best color accuracy</li>
+                    <li><strong>Save at high resolution</strong> (300 DPI minimum)</li>
+                    <li><strong>Include bleed areas</strong> for edge-to-edge printing</li>
+                </ul>
+            </div>
+            
+            <div class="guidelines-section">
+                <h2>Resolution Requirements</h2>
+                <p>Resolution determines the sharpness and quality of your printed output. Use these guidelines:</p>
+                
+                <table class="resolution-table">
+                    <thead>
+                        <tr>
+                            <th>Print Type</th>
+                            <th>Resolution</th>
+                            <th>Viewing Distance</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Business Cards</td>
+                            <td>300 DPI</td>
+                            <td>Close (12 inches)</td>
+                            <td>High detail required</td>
+                        </tr>
+                        <tr>
+                            <td>Flyers & Posters</td>
+                            <td>300 DPI</td>
+                            <td>Close to Medium</td>
+                            <td>Standard print quality</td>
+                        </tr>
+                        <tr>
+                            <td>Large Banners</td>
+                            <td>150-200 DPI</td>
+                            <td>Far (10+ feet)</td>
+                            <td>Lower resolution acceptable</td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle Wraps</td>
+                            <td>150 DPI</td>
+                            <td>Medium to Far</td>
+                            <td>Moving vehicle viewing</td>
+                        </tr>
+                        <tr>
+                            <td>Billboards</td>
+                            <td>100-150 DPI</td>
+                            <td>Very Far (50+ feet)</td>
+                            <td>Lowest resolution acceptable</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Image Quality Tips</h3>
+                <ul>
+                    <li><strong>Start with high-resolution images</strong> - you can always reduce quality, but can't increase it</li>
+                    <li><strong>Use vector graphics</strong> for logos and text when possible</li>
+                    <li><strong>Avoid upscaling low-resolution images</strong> - they will appear pixelated</li>
+                    <li><strong>Check image quality</strong> at 100% zoom before submitting</li>
+                </ul>
+            </div>
+            
+            <div class="color-info">
+                <h3>Color Mode & Profiles</h3>
+                <p>Color accuracy is crucial for professional printing results:</p>
+                <ul>
+                    <li><strong>Use CMYK color mode</strong> for all print files</li>
+                    <li><strong>RGB is for screen display only</strong> - colors will shift when converted</li>
+                    <li><strong>Pantone colors</strong> can be matched exactly for brand consistency</li>
+                    <li><strong>Color profiles</strong> help maintain consistent color across different devices</li>
+                    <li><strong>Test prints</strong> are recommended for critical color matching</li>
+                </ul>
+            </div>
+            
+            <div class="guidelines-section">
+                <h2>Bleed and Safe Areas</h2>
+                
+                <div class="bleed-info">
+                    <h3>⚠️ Important: Bleed Requirements</h3>
+                    <p>For edge-to-edge printing, include a 3mm (0.125 inches) bleed area around all edges. This ensures your design extends to the edge without white borders.</p>
+                </div>
+                
+                <h3>Bleed Guidelines</h3>
+                <ul>
+                    <li><strong>Standard bleed:</strong> 3mm (0.125 inches) on all sides</li>
+                    <li><strong>Large format bleed:</strong> 5mm (0.2 inches) on all sides</li>
+                    <li><strong>Extend background colors</strong> into the bleed area</li>
+                    <li><strong>Keep important content</strong> within the safe area (6mm / 0.25 inches from edges)</li>
+                    <li><strong>Text and logos</strong> should never be placed in bleed areas</li>
+                </ul>
+                
+                <h3>Safe Area Guidelines</h3>
+                <ul>
+                    <li><strong>Keep text 6mm</strong> (0.25 inches) away from trim edges</li>
+                    <li><strong>Important graphics</strong> should be within safe margins</li>
+                    <li><strong>Account for binding</strong> on multi-page documents</li>
+                    <li><strong>Consider fold lines</strong> on folded materials</li>
+                </ul>
+                
+                <table class="resolution-table">
+                    <thead>
+                        <tr>
+                            <th>Measurement</th>
+                            <th>Millimeters</th>
+                            <th>Inches</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Standard Bleed</td>
+                            <td>3mm</td>
+                            <td>0.125"</td>
+                            <td>Most print projects</td>
+                        </tr>
+                        <tr>
+                            <td>Large Format Bleed</td>
+                            <td>5mm</td>
+                            <td>0.2"</td>
+                            <td>Banners, signs</td>
+                        </tr>
+                        <tr>
+                            <td>Safe Area</td>
+                            <td>6mm</td>
+                            <td>0.25"</td>
+                            <td>Text and logos</td>
+                        </tr>
+                        <tr>
+                            <td>Binding Margin</td>
+                            <td>8mm</td>
+                            <td>0.3"</td>
+                            <td>Bound documents</td>
+                        </tr>
+                        <tr>
+                            <td>Fold Line</td>
+                            <td>10mm</td>
+                            <td>0.4"</td>
+                            <td>Folded materials</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="guidelines-section">
+                <h2>Typography Guidelines</h2>
+                
+                <h3>Font Requirements</h3>
+                <ul>
+                    <li><strong>Embed all fonts</strong> in your PDF files</li>
+                    <li><strong>Convert text to outlines</strong> for maximum compatibility</li>
+                    <li><strong>Use web-safe fonts</strong> or include font files</li>
+                    <li><strong>Avoid system fonts</strong> that may not be available</li>
+                    <li><strong>Check font licensing</strong> for commercial use</li>
+                </ul>
+                
+                <h3>Text Size Guidelines</h3>
+                <ul>
+                    <li><strong>Minimum readable size:</strong> 8pt for body text</li>
+                    <li><strong>Headlines:</strong> 14pt or larger</li>
+                    <li><strong>Small text:</strong> Use sans-serif fonts for readability</li>
+                    <li><strong>Large format:</strong> Increase text size for viewing distance</li>
+                    <li><strong>Test readability</strong> at actual print size</li>
+                </ul>
+            </div>
+            
+            <div class="tips-section">
+                <h3>💡 Pro Tips for Better Results</h3>
+                <ul>
+                    <li><strong>Always request a proof</strong> before final production</li>
+                    <li><strong>Use our design services</strong> for complex layouts</li>
+                    <li><strong>Provide source files</strong> when possible for easy edits</li>
+                    <li><strong>Communicate your vision</strong> clearly with our team</li>
+                    <li><strong>Plan for production time</strong> in your project timeline</li>
+                    <li><strong>Consider finishing options</strong> like laminating or mounting</li>
+                    <li><strong>Test your design</strong> at different sizes and viewing distances</li>
+                </ul>
+            </div>
+            
+            <div class="download-section">
+                <h3>Download Our Templates</h3>
+                <p>Get started with our professionally designed templates for common print products.</p>
+                <a href="#" class="download-btn">Download Templates</a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+    
+    <script>
+        // Header and footer components are now loaded by centralized scripts (header-init.js and footer-init.js)
+    </script>
+</body>
+</html>

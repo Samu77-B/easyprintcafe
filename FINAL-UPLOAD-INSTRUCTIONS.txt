@@ -1,0 +1,164 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║           FINAL UPLOAD INSTRUCTIONS FOR LIVE SERVER                ║
+║           easyprintcafe.com/build/                                 ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+
+✅ HEADER & FOOTER FIX CONFIRMED WORKING LOCALLY!
+
+Now uploading to: https://easyprintcafe.com/build/
+
+
+┌────────────────────────────────────────────────────────────────────┐
+│  FILES TO UPLOAD (6 files total)                                   │
+└────────────────────────────────────────────────────────────────────┘
+
+📂 FROM YOUR LOCAL: C:\Websites\EasyPrintCafe.com\Website25\02\
+
+🔹 JavaScript Files (UPDATED - MUST UPLOAD):
+
+1. js/header-init.js  (16.6 KB, Modified: Oct 11 18:59)
+   ➜ Upload to: /build/js/header-init.js
+   
+2. js/footer-init.js  (3.7 KB, Modified: Oct 11 18:59)
+   ➜ Upload to: /build/js/footer-init.js
+
+
+🔹 Component Files (Upload if not already on server):
+
+3. components/header.html  (8 KB, Modified: Oct 11 00:03)
+   ➜ Upload to: /build/components/header.html
+   
+4. components/footer.html  (6 KB, Modified: Oct 04 18:04)
+   ➜ Upload to: /build/components/footer.html
+   
+5. components/header.css  (23 KB, Modified: Oct 11 00:16)
+   ➜ Upload to: /build/components/header.css
+   
+6. components/footer.css  (7 KB, Modified: Oct 01 22:28)
+   ➜ Upload to: /build/components/footer.css
+
+
+┌────────────────────────────────────────────────────────────────────┐
+│  UPLOAD METHODS (Choose one)                                       │
+└────────────────────────────────────────────────────────────────────┘
+
+METHOD 1: Hostinger File Manager (Easiest)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Log into Hostinger control panel: https://hpanel.hostinger.com/
+2. Navigate to: Websites → Manage → File Manager
+3. Navigate to: public_html/build/
+4. Upload files:
+   • Go to js/ folder → Upload header-init.js and footer-init.js
+   • Go to components/ folder → Upload all 4 component files
+5. Overwrite existing files when prompted
+
+
+METHOD 2: FTP/SFTP (FileZilla, WinSCP, etc.)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Connect to: easyprintcafe.com
+   - Host: ftp.easyprintcafe.com (or use SFTP)
+   - Use your Hostinger FTP credentials
+   
+2. Navigate to: /public_html/build/
+
+3. Upload Structure:
+   /public_html/build/
+   ├── js/
+   │   ├── header-init.js  ← UPLOAD (overwrite)
+   │   └── footer-init.js  ← UPLOAD (overwrite)
+   └── components/
+       ├── header.html     ← UPLOAD (overwrite if exists)
+       ├── footer.html     ← UPLOAD (overwrite if exists)
+       ├── header.css      ← UPLOAD (overwrite if exists)
+       └── footer.css      ← UPLOAD (overwrite if exists)
+
+
+┌────────────────────────────────────────────────────────────────────┐
+│  VERIFICATION AFTER UPLOAD                                         │
+└────────────────────────────────────────────────────────────────────┘
+
+1. Clear your browser cache completely (Ctrl+Shift+Delete)
+
+2. Visit these URLs and verify header/footer appear:
+
+   ✓ https://easyprintcafe.com/build/product.php?slug=feather-flag
+   ✓ https://easyprintcafe.com/build/pages/products.php
+   ✓ https://easyprintcafe.com/build/
+   
+3. Open Browser Console (F12) and check:
+   ✓ No 404 errors
+   ✓ No JavaScript errors
+   ✓ Header and footer load successfully
+
+4. Test navigation:
+   ✓ Click logo - should go to homepage
+   ✓ Click menu items - should navigate correctly
+   ✓ Click footer links - should work
+
+
+┌────────────────────────────────────────────────────────────────────┐
+│  SUCCESS CHECKLIST                                                 │
+└────────────────────────────────────────────────────────────────────┘
+
+After upload, you should see:
+
+□ Header displays at top of all pages
+□ Footer displays at bottom of all pages
+□ Logo is visible and clickable
+□ Navigation menu works
+□ Products dropdown shows products
+□ No 404 errors in console
+□ Product pages load correctly with content
+□ All links functional
+
+
+┌────────────────────────────────────────────────────────────────────┐
+│  TROUBLESHOOTING                                                   │
+└────────────────────────────────────────────────────────────────────┘
+
+If header/footer still don't show after upload:
+
+1. Hard refresh: Ctrl+F5 (Windows) or Cmd+Shift+R (Mac)
+
+2. Verify file locations on server:
+   • Files must be in /build/js/ and /build/components/
+   • NOT in root directory
+
+3. Check file permissions:
+   • Files: 644
+   • Directories: 755
+
+4. Check browser console for specific errors
+
+5. Verify all 6 files uploaded successfully
+
+
+┌────────────────────────────────────────────────────────────────────┐
+│  FILE CHECKSUMS (for verification)                                 │
+└────────────────────────────────────────────────────────────────────┘
+
+After upload, verify file sizes match:
+
+header-init.js  : 16,571 bytes
+footer-init.js  :  3,681 bytes
+header.html     :  8,073 bytes
+footer.html     :  6,111 bytes
+header.css      : 23,143 bytes
+footer.css      :  6,839 bytes
+
+
+═══════════════════════════════════════════════════════════════════════
+
+🎯 NEXT STEPS:
+
+1. Upload the 6 files to your Hostinger server
+2. Clear browser cache
+3. Test the URLs above
+4. Report back with results!
+
+═══════════════════════════════════════════════════════════════════════
+

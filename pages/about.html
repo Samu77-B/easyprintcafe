@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Easy Print Cafe | We make printing as easy as buying your morning coffee!</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .hero-subtext {
+            background: #f8f9fa;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .hero-subtext p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .about-section {
+            margin-bottom: 60px;
+        }
+        
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .about-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #597525;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .story-text {
+            padding: 20px;
+        }
+        
+        .story-image {
+            text-align: center;
+        }
+        
+        .story-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8eb442, #7a9c3a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .value-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #597525;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .value-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        
+        .cta-section {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #597525;
+        }
+        
+        .btn-primary:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #597525;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtext p {
+                font-size: 1.1rem;
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .about-section h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+    
+    <!-- Load header CSS last to ensure it takes precedence -->
+    <link rel="stylesheet" href="../components/header.css">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <!-- Debug: Check if header loads -->
+    <script>
+        setTimeout(function() {
+            const header = document.querySelector('.header');
+            const placeholder = document.getElementById('header-placeholder');
+            console.log('About page debug:');
+            console.log('- Header found:', !!header);
+            console.log('- Placeholder content length:', placeholder ? placeholder.innerHTML.length : 'No placeholder');
+            if (header) {
+                console.log('- Header background:', window.getComputedStyle(header).backgroundColor);
+                console.log('- Header position:', window.getComputedStyle(header).position);
+            }
+        }, 2000);
+    </script>
+
+    <main class="main">
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="about-content">
+                <h1>About Easy Print Cafe</h1>
+            </div>
+        </section>
+
+        <!-- Hero Sub-text Section -->
+        <section class="hero-subtext">
+            <div class="about-content">
+                <p>We're passionate about making professional printing as simple and accessible as grabbing your morning coffee. No complicated processes, no confusing jargon – just great results, fast.</p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="about-content">
+            <div class="about-section">
+                <h2>Our Story</h2>
+                <div class="story-grid">
+                    <div class="story-text">
+                        <h3>Born from Frustration</h3>
+                        <p>Easy Print Cafe was born from a simple frustration: why should getting quality printing be so complicated? We watched too many businesses struggle with confusing quotes, long wait times, and disappointing results.</p>
+                        <p>We believed there had to be a better way – a way that combined the speed and convenience of your local coffee shop with the quality and expertise of professional printing.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="../images/CafeWindow25.png" alt="Easy Print Cafe Storefront" />
+                    </div>
+                </div>
+                
+                <div class="story-grid">
+                    <div class="story-image">
+                        <img src="../images/Cafe-Delivery.jpg" alt="Easy Print Cafe Delivery Service" />
+                    </div>
+                    <div class="story-text">
+                        <h3>Fast, Friendly, Reliable</h3>
+                        <p>Today, we're proud to serve businesses of all sizes with the same friendly, efficient service you'd expect from your favorite local cafe. Whether you need a single poster or a complete exhibition stand, we make it happen – fast.</p>
+                        <p>Our team combines years of printing expertise with a genuine passion for helping businesses succeed. We're not just printers; we're your partners in making your business look amazing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section class="about-content">
+            <div class="about-section">
+                <h2>What We Stand For</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Lightning Fast</h4>
+                        <p>We understand that time is money. That's why we offer some of the fastest turnaround times in the industry, without compromising on quality.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h4>Friendly Service</h4>
+                        <p>Just like your favorite coffee shop, we believe in warm, personal service. No corporate speak, no complicated processes – just friendly people who care about your success.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>Quality Focused</h4>
+                        <p>We use only the best materials and latest technology to ensure your prints look professional and last. Your reputation is our reputation.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-pound-sign"></i>
+                        </div>
+                        <h4>Fair Pricing</h4>
+                        <p>Transparent, competitive pricing with no hidden fees. What you see is what you pay – simple, honest, and fair.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Eco-Conscious</h4>
+                        <p>We're committed to sustainable printing practices, using eco-friendly materials and processes wherever possible to protect our planet.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Partnership</h4>
+                        <p>We're not just a vendor – we're your printing partner. We take the time to understand your business and help you achieve your goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="about-content">
+                <h2>Ready to Experience the Easy Print Cafe Difference?</h2>
+                <p>Join thousands of satisfied customers who've discovered that professional printing doesn't have to be complicated.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html" class="btn btn-primary">Get Started Today</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+</body>
+</html>

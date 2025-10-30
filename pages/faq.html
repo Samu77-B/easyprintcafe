@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | Easy Print Cafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent 0%, #f1f3f4 100%);
+            z-index: 2;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-subtext {
+            background: #f8f9fa;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .hero-subtext p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .faq-header h1 {
+            color: #597525;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .faq-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .faq-search {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .faq-search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .faq-search-input:focus {
+            outline: none;
+            border-color: #597525;
+        }
+        
+        .faq-category {
+            margin-bottom: 3rem;
+        }
+        
+        .faq-category h2 {
+            color: #597525;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border-bottom: 3px solid #8eb442;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            background: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-question.active {
+            background: #597525;
+            color: white;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: #8eb442;
+        }
+        
+        .faq-question.active .faq-toggle {
+            transform: rotate(45deg);
+            color: white;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+        
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .faq-answer ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
+        
+        .contact-cta {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .contact-cta h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-cta p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .contact-cta a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .contact-cta a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtext p {
+                font-size: 1.1rem;
+            }
+            
+            .faq-container {
+                padding: 1rem;
+            }
+            
+            .faq-header h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-category h2 {
+                font-size: 1.5rem;
+            }
+            
+            .faq-question {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            
+            .faq-answer.active {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <main class="main">
+        <!-- FAQ Hero Section -->
+        <section class="about-hero">
+            <div class="about-content">
+                <h1>Frequently Asked <span class="highlight">Questions</span></h1>
+            </div>
+        </section>
+
+        <!-- Hero Sub-text Section -->
+        <section class="hero-subtext">
+            <div class="about-content">
+                <p>Find answers to common questions about our printing services, processes, and policies.</p>
+            </div>
+        </section>
+
+        <div class="faq-container">
+            
+            <div class="faq-search">
+                <input type="text" class="faq-search-input" placeholder="Search FAQ..." id="faqSearch">
+            </div>
+            
+            <div class="faq-category">
+                <h2>General Questions</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What printing services do you offer?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer a comprehensive range of printing services including:</p>
+                        <ul>
+                            <li>Large format printing (banners, posters, signs, flags)</li>
+                            <li>Small format printing (business cards, flyers, stickers)</li>
+                            <li>Custom design services</li>
+                            <li>Vinyl cutting and lettering</li>
+                            <li>Roller banners and pop-up displays</li>
+                            <li>Lightbox displays</li>
+                            <li>Canvas printing</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How long does it take to complete an order?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Production times vary depending on the type and quantity of items:</p>
+                        <ul>
+                            <li><strong>Standard orders:</strong> 3-5 business days</li>
+                            <li><strong>Rush orders:</strong> 1-2 business days (additional charges may apply)</li>
+                            <li><strong>Large format printing:</strong> 5-7 business days</li>
+                            <li><strong>Custom design projects:</strong> 7-10 business days</li>
+                        </ul>
+                        <p>Delivery time is additional and depends on your location and chosen delivery method.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer design services?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Our experienced design team can help with:</p>
+                        <ul>
+                            <li>Logo design and branding</li>
+                            <li>Marketing materials design</li>
+                            <li>Layout and formatting</li>
+                            <li>Color correction and image enhancement</li>
+                            <li>File preparation for print</li>
+                        </ul>
+                        <p>Design services are charged separately from printing costs. Contact us for a quote.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-category">
+                <h2>File Requirements & Technical</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What file formats do you accept?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept the following file formats:</p>
+                        <ul>
+                            <li><strong>PDF:</strong> Preferred format for print-ready files</li>
+                            <li><strong>AI:</strong> Adobe Illustrator files</li>
+                            <li><strong>PSD:</strong> Adobe Photoshop files</li>
+                            <li><strong>EPS:</strong> Encapsulated PostScript</li>
+                            <li><strong>JPG/JPEG:</strong> High-resolution images only</li>
+                            <li><strong>PNG:</strong> For images with transparency</li>
+                            <li><strong>TIFF:</strong> High-quality image format</li>
+                        </ul>
+                        <p>For best results, provide files in CMYK color mode at 300 DPI resolution.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What resolution should my images be?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>For high-quality printing, images should be:</p>
+                        <ul>
+                            <li><strong>300 DPI</strong> for standard printing</li>
+                            <li><strong>150-200 DPI</strong> for large format printing (viewed from distance)</li>
+                            <li><strong>Vector graphics</strong> are preferred for logos and text</li>
+                        </ul>
+                        <p>Low-resolution images will appear pixelated when printed. We can help optimize your files if needed.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can you print from low-resolution files?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We can print from low-resolution files, but the quality may be compromised. We'll always inform you if we notice potential quality issues and offer solutions such as:</p>
+                        <ul>
+                            <li>Using our design services to recreate the artwork</li>
+                            <li>Suggesting alternative file sources</li>
+                            <li>Adjusting the print size to maintain quality</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-category">
+                <h2>Pricing & Orders</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do you calculate pricing?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pricing is based on several factors:</p>
+                        <ul>
+                            <li>Print size and dimensions</li>
+                            <li>Quantity ordered</li>
+                            <li>Paper/material type</li>
+                            <li>Finishing options (laminating, mounting, etc.)</li>
+                            <li>Rush order surcharges</li>
+                            <li>Delivery method</li>
+                        </ul>
+                        <p>Contact us for a detailed quote tailored to your specific requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer bulk discounts?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer competitive pricing for bulk orders:</p>
+                        <ul>
+                            <li><strong>100+ items:</strong> 10% discount</li>
+                            <li><strong>500+ items:</strong> 15% discount</li>
+                            <li><strong>1000+ items:</strong> 20% discount</li>
+                        </ul>
+                        <p>Additional discounts may be available for regular customers and large contracts. Contact us to discuss your specific needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept the following payment methods:</p>
+                        <ul>
+                            <li>Credit/debit cards (Visa, Mastercard, American Express)</li>
+                            <li>Bank transfers</li>
+                            <li>PayPal</li>
+                            <li>Cash (for collection orders)</li>
+                            <li>Business accounts (subject to approval)</li>
+                        </ul>
+                        <p>Payment is typically required before work commences unless credit terms have been arranged.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-category">
+                <h2>Delivery & Collection</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you offer delivery services?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer several delivery options:</p>
+                        <ul>
+                            <li><strong>Local delivery:</strong> Free within 5 miles (next business day)</li>
+                            <li><strong>UK delivery:</strong> 2-3 business days via courier</li>
+                            <li><strong>Express delivery:</strong> Next day delivery available</li>
+                            <li><strong>Collection:</strong> Free collection from our shop</li>
+                        </ul>
+                        <p>Delivery charges vary by location and urgency. Contact us for specific delivery quotes.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I collect my order in person?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! Collection is free and available during our business hours:</p>
+                        <ul>
+                            <li><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</li>
+                            <li><strong>Saturday:</strong> 9:00 AM - 4:00 PM</li>
+                            <li><strong>Sunday:</strong> Closed</li>
+                        </ul>
+                        <p>We'll notify you when your order is ready for collection. Please bring a form of ID and your order confirmation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What if my order is damaged in transit?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>If your order arrives damaged, please contact us immediately. We will:</p>
+                        <ul>
+                            <li>Arrange for the damaged items to be returned</li>
+                            <li>Produce replacements at no extra cost</li>
+                            <li>Cover all return and redelivery costs</li>
+                            <li>Investigate the cause to prevent future issues</li>
+                        </ul>
+                        <p>Please inspect your order upon receipt and report any damage within 48 hours.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-cta">
+                <h3>Still have questions?</h3>
+                <p>Our friendly team is here to help with any questions you might have about our printing services.</p>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+    
+    <script>
+        // Header and footer components are now loaded by centralized scripts (header-init.js and footer-init.js)
+
+        // FAQ functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all other FAQs
+                    faqQuestions.forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('active');
+                    });
+                    
+                    // Toggle current FAQ
+                    if (!isActive) {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+            
+            // FAQ search functionality
+            const searchInput = document.getElementById('faqSearch');
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

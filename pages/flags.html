@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flags | Easy Print Cafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Flags Page Specific Styles */
+        .product-hero {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .product-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .product-hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .product-hero-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .product-hero-features {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-icon {
+            font-size: 1.2rem;
+        }
+        
+        .flag-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .flag-thumbnail {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .flag-thumbnail:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .thumb-img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .thumb-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .product-gallery {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 3rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .flags-detailed-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            gap: 3rem;
+        }
+        
+        .flag-detailed-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .flag-detailed-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .flag-detailed-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .flag-detailed-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .flag-detailed-card:hover .flag-detailed-img {
+            transform: scale(1.05);
+        }
+        
+        .flag-detailed-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .flag-detailed-info h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #597525;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .flag-description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .flag-features ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .flag-features li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .flag-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #8eb442;
+            font-weight: bold;
+        }
+        
+        .flag-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(89, 117, 37, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #597525;
+            border: 2px solid #597525;
+        }
+        
+        .btn-outline:hover {
+            background: #597525;
+            color: white;
+        }
+        
+        .product-specifications {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .specs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .spec-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #8eb442;
+        }
+        
+        .spec-item h3 {
+            color: #597525;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .spec-item ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .spec-item li {
+            padding: 0.3rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        
+        .spec-item li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #8eb442;
+            font-weight: bold;
+        }
+        
+        .related-solutions {
+            padding: 60px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .related-solutions h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .related-solutions p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .product-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .product-hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .product-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .flag-thumbnails {
+                grid-template-columns: 1fr;
+            }
+            
+            .flag-detailed-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .flag-actions {
+                justify-content: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <script>
+        // Header component is now loaded by centralized script
+    </script>
+
+    <main class="main">
+        <!-- Flags Hero Section -->
+        <section class="product-hero">
+            <div class="product-hero-content">
+                <div class="product-hero-text">
+                    <h1 class="product-hero-title">
+                        <span class="highlight">Flags</span> Collection
+                    </h1>
+                    <p class="product-hero-subtitle">
+                        Choose from 5 distinct flag styles, each designed for different branding needs and visual impact. From traditional to modern, find the perfect flag to represent your brand.
+                    </p>
+                    <div class="product-hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-wind feature-icon"></i>
+                            <span>Wind-resistant designs</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-palette feature-icon"></i>
+                            <span>Full-color printing</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bolt feature-icon"></i>
+                            <span>Quick setup</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-trophy feature-icon"></i>
+                            <span>5 unique styles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-hero-image">
+                    <div class="flag-thumbnails">
+                        <a href="#feather-flag" class="flag-thumbnail">
+                            <img src="../images/products/feather-flag.png" alt="Feather Flag" class="thumb-img">
+                            <span class="thumb-name">Feather</span>
+                        </a>
+                        <a href="#crest-flag" class="flag-thumbnail">
+                            <img src="../images/products/crest flag.png" alt="Crest Flag" class="thumb-img">
+                            <span class="thumb-name">Crest</span>
+                        </a>
+                        <a href="#flamingo-flag" class="flag-thumbnail">
+                            <img src="../images/products/flamingo eco flag.png" alt="Flamingo Flag" class="thumb-img">
+                            <span class="thumb-name">Flamingo</span>
+                        </a>
+                        <a href="#fin-flag" class="flag-thumbnail">
+                            <img src="../images/products/fin flag.png" alt="Fin Flag" class="thumb-img">
+                            <span class="thumb-name">Fin</span>
+                        </a>
+                        <a href="#teardrop-flag" class="flag-thumbnail">
+                            <img src="../images/products/placeholder.png" alt="Teardrop Flag" class="thumb-img">
+                            <span class="thumb-name">Teardrop</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flag Styles Gallery -->
+        <section class="product-gallery">
+            <h2 class="section-title">Flag Styles</h2>
+            <div class="flags-detailed-grid">
+                <div class="flag-detailed-card" id="feather-flag">
+                    <div class="flag-detailed-image">
+                        <img src="../images/products/feather-flag.png" alt="Feather Flag" class="flag-detailed-img">
+                    </div>
+                    <div class="flag-detailed-info">
+                        <h3>Feather Flag</h3>
+                        <p class="flag-description">Classic feather design for maximum visibility and traditional appeal. Perfect for outdoor events and promotions.</p>
+                        <div class="flag-features">
+                            <ul>
+                                <li>Wind-resistant design</li>
+                                <li>Premium polyester fabric</li>
+                                <li>UV-resistant printing</li>
+                                <li>Available in multiple sizes</li>
+                            </ul>
+                        </div>
+                        <div class="flag-actions">
+                            <a href="feather-flag.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-primary add-to-basket" data-flag="feather">Add to Basket</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flag-detailed-card" id="crest-flag">
+                    <div class="flag-detailed-image">
+                        <img src="../images/products/crest flag.png" alt="Crest Flag" class="flag-detailed-img">
+                    </div>
+                    <div class="flag-detailed-info">
+                        <h3>Crest Flag</h3>
+                        <p class="flag-description">Traditional crest shape that exudes authority and heritage branding. Ideal for institutions and formal environments.</p>
+                        <div class="flag-features">
+                            <ul>
+                                <li>Traditional crest design</li>
+                                <li>Heavy-duty construction</li>
+                                <li>Weather-resistant finish</li>
+                                <li>Professional appearance</li>
+                            </ul>
+                        </div>
+                        <div class="flag-actions">
+                            <a href="crest-flag.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-primary add-to-basket" data-flag="crest">Add to Basket</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flag-detailed-card" id="flamingo-flag">
+                    <div class="flag-detailed-image">
+                        <img src="../images/products/flamingo eco flag.png" alt="Flamingo Flag" class="flag-detailed-img">
+                    </div>
+                    <div class="flag-detailed-info">
+                        <h3>Flamingo Flag</h3>
+                        <p class="flag-description">Unique flamingo shape for distinctive and memorable brand presence. Stand out from the competition.</p>
+                        <div class="flag-features">
+                            <ul>
+                                <li>Distinctive flamingo shape</li>
+                                <li>Maximum brand visibility</li>
+                                <li>Premium digital printing</li>
+                                <li>Eye-catching presence</li>
+                            </ul>
+                        </div>
+                        <div class="flag-actions">
+                            <a href="flamingo-flag.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-primary add-to-basket" data-flag="flamingo">Add to Basket</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flag-detailed-card" id="fin-flag">
+                    <div class="flag-detailed-image">
+                        <img src="../images/products/fin flag.png" alt="Fin Flag" class="flag-detailed-img">
+                    </div>
+                    <div class="flag-detailed-info">
+                        <h3>Fin Flag</h3>
+                        <p class="flag-description">Modern fin design with contemporary appeal for tech and modern brands. Sleek and professional.</p>
+                        <div class="flag-features">
+                            <ul>
+                                <li>Modern fin design</li>
+                                <li>Superior wind resistance</li>
+                                <li>Contemporary appeal</li>
+                                <li>Tech-friendly aesthetic</li>
+                            </ul>
+                        </div>
+                        <div class="flag-actions">
+                            <a href="fin-flag.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-primary add-to-basket" data-flag="fin">Add to Basket</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flag-detailed-card" id="teardrop-flag">
+                    <div class="flag-detailed-image">
+                        <img src="../images/products/placeholder.png" alt="Teardrop Flag" class="flag-detailed-img">
+                    </div>
+                    <div class="flag-detailed-info">
+                        <h3>Teardrop Flag</h3>
+                        <p class="flag-description">Elegant teardrop shape combining sophistication with high visibility. Perfect for premium branding.</p>
+                        <div class="flag-features">
+                            <ul>
+                                <li>Elegant teardrop design</li>
+                                <li>Sophisticated appeal</li>
+                                <li>High visibility</li>
+                                <li>Premium quality</li>
+                            </ul>
+                        </div>
+                        <div class="flag-actions">
+                            <a href="teardrop-flag.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-primary add-to-basket" data-flag="teardrop">Add to Basket</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- General Specifications Section -->
+        <section class="product-specifications">
+            <div class="specs-container">
+                <div class="specs-content">
+                    <h2 class="section-title">General Specifications</h2>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <h3>Standard Sizes</h3>
+                            <ul>
+                                <li>2m x 0.5m (6.5ft x 1.6ft)</li>
+                                <li>2.5m x 0.5m (8.2ft x 1.6ft)</li>
+                                <li>3m x 0.5m (9.8ft x 1.6ft)</li>
+                                <li>Custom sizes available</li>
+                            </ul>
+                        </div>
+                        <div class="spec-item">
+                            <h3>Materials</h3>
+                            <ul>
+                                <li>Premium polyester fabric</li>
+                                <li>UV-resistant printing</li>
+                                <li>Weather-resistant finish</li>
+                                <li>Reinforced edges</li>
+                            </ul>
+                        </div>
+                        <div class="spec-item">
+                            <h3>Base Options</h3>
+                            <ul>
+                                <li>Weighted plastic base</li>
+                                <li>Sand-filled base</li>
+                                <li>Water-filled base</li>
+                                <li>Ground stake option</li>
+                            </ul>
+                        </div>
+                        <div class="spec-item">
+                            <h3>Printing</h3>
+                            <ul>
+                                <li>Single or double-sided</li>
+                                <li>Full-color digital printing</li>
+                                <li>High-resolution graphics</li>
+                                <li>Fade-resistant inks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Solutions Section -->
+        <section class="related-solutions">
+            <div class="cta-content">
+                <h2>Explore More Solutions</h2>
+                <p>Discover our other printing services and solutions</p>
+                <div class="cta-buttons">
+                    <a href="printing-services.html" class="btn btn-outline">All Printing Services</a>
+                    <a href="cafe-restaurant.html" class="btn btn-outline">Cafe & Restaurant</a>
+                    <a href="student-academic.html" class="btn btn-outline">Student & Academic</a>
+                    <a href="corporate-office.html" class="btn btn-outline">Corporate Office</a>
+                    <a href="events-trade-shows.html" class="btn btn-outline">Events & Trade Shows</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="product-cta">
+            <div class="cta-content">
+                <h2>Ready to choose your flag style?</h2>
+                <p>Browse individual flag styles above or get a custom quote for your project today.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#large-format" class="btn btn-outline">View All Products</a>
+                    <a href="mailto:info@easyprintcafe.com" class="btn btn-primary">Get Quote</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+    
+    <script>
+        // Footer component is now loaded by centralized script
+    </script>
+</body>
+</html>

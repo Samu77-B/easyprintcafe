@@ -69,3 +69,9 @@ logs
 # Temporary files
 tmp/
 temp/
+
+# Large product files (too large for GitHub)
+Products/Large Format/Crowd Barrier Graphics/Cafe Barriers/*.zip
+Products/Large Format/Crowd Barrier Graphics/Cafe Barriers/*.psd
+Products/Large Format/**/*.psd
+Products/Large Format/**/*.zip

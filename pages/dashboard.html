@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Easy Print Cafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Load header CSS last to ensure it takes precedence -->
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .hero-subtext {
+            background: #f8f9fa;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .hero-subtext p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .dashboard-container {
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtext p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-subtext > .about-content > div {
+                flex-direction: column !important;
+                gap: 1rem;
+                align-items: flex-start !important;
+            }
+            
+            .hero-subtext button {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+
+    <main class="main">
+        <!-- Dashboard Hero Section -->
+        <section class="about-hero">
+            <div class="about-content">
+                <h1>Dashboard</h1>
+            </div>
+        </section>
+
+        <!-- Hero Sub-text Section -->
+        <section class="hero-subtext">
+            <div class="about-content">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <p style="margin: 0;">Welcome back, <span id="user-name">John Doe</span>! Manage your orders, files, and account in one place.</p>
+                    <button onclick="logout()" style="background: #dc3545; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 0.9rem;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="dashboard-container">
+            <!-- Modular Dashboard Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- Stats Overview Card -->
+                <div class="dashboard-card stats-overview">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-bar"></i> Account Overview</h3>
+                        <span class="card-subtitle">Last 30 days</span>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">24</div>
+                            <div class="stat-label">Total Orders</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">156</div>
+                            <div class="stat-label">Files Saved</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">£2,847</div>
+                            <div class="stat-label">Total Spent</div>
+                            <div class="stat-icon">
+                                <i class="fas fa-pound-sign"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Card -->
+                <div class="dashboard-card quick-actions-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                        <span class="card-subtitle">Common tasks</span>
+                    </div>
+                    <div class="actions-grid">
+                        <a href="#" class="action-item" id="new-order-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>New Order</h4>
+                                <p>Start a new printing order</p>
+                            </div>
+                        </a>
+                        <a href="#" class="action-item" id="upload-files-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>Upload Files</h4>
+                                <p>Save files for future orders</p>
+                            </div>
+                        </a>
+                        <a href="#" class="action-item" id="support-btn">
+                            <div class="action-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="action-content">
+                                <h4>Get Support</h4>
+                                <p>Contact our support team</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recent Orders Card -->
+                <div class="dashboard-card recent-orders">
+                    <div class="card-header">
+                        <h3><i class="fas fa-shopping-bag"></i> Recent Orders</h3>
+                        <a href="#" class="view-all-link">View All</a>
+                    </div>
+                    <div class="orders-list">
+                        <div class="order-item">
+                            <div class="order-info">
+                                <h4>Business Cards - Premium</h4>
+                                <p class="order-date">Dec 15, 2024</p>
+                                <span class="order-status completed">Completed</span>
+                            </div>
+                            <div class="order-actions">
+                                <button class="btn btn-outline" onclick="downloadInvoice('ORD-2024-001')">
+                                    <i class="fas fa-download"></i>
+                                    Invoice
+                                </button>
+                                <button class="btn btn-primary" onclick="reorder('ORD-2024-001')">
+                                    Reorder
+                                </button>
+                            </div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <h4>Poster Printing - A2</h4>
+                                <p class="order-date">Dec 10, 2024</p>
+                                <span class="order-status processing">Processing</span>
+                            </div>
+                            <div class="order-actions">
+                                <button class="btn btn-outline" onclick="downloadInvoice('ORD-2024-002')">
+                                    <i class="fas fa-download"></i>
+                                    Invoice
+                                </button>
+                                <button class="btn btn-secondary" disabled>
+                                    Track Order
+                                </button>
+                            </div>
+                        </div>
+                        <div class="order-item">
+                            <div class="order-info">
+                                <h4>Feather Flags - Custom</h4>
+                                <p class="order-date">Dec 5, 2024</p>
+                                <span class="order-status completed">Completed</span>
+                            </div>
+                            <div class="order-actions">
+                                <button class="btn btn-outline" onclick="downloadInvoice('ORD-2024-003')">
+                                    <i class="fas fa-download"></i>
+                                    Invoice
+                                </button>
+                                <button class="btn btn-primary" onclick="reorder('ORD-2024-003')">
+                                    Reorder
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Files Card -->
+                <div class="dashboard-card saved-files">
+                    <div class="card-header">
+                        <h3><i class="fas fa-folder-open"></i> Saved Files</h3>
+                        <a href="#" class="view-all-link">View All</a>
+                    </div>
+                    <div class="files-list">
+                        <div class="file-item">
+                            <div class="file-preview">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="file-info">
+                                <h4>Company Logo Design</h4>
+                                <p class="file-date">Dec 12, 2024</p>
+                                <span class="file-size">2.3 MB</span>
+                            </div>
+                            <div class="file-actions">
+                                <button class="btn btn-outline" onclick="downloadLowRes('file-001')">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn btn-secondary" onclick="useInOrder('file-001')">
+                                    Use in Order
+                                </button>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-preview">
+                                <i class="fas fa-file-image"></i>
+                            </div>
+                            <div class="file-info">
+                                <h4>Event Banner Design</h4>
+                                <p class="file-date">Dec 8, 2024</p>
+                                <span class="file-size">5.1 MB</span>
+                            </div>
+                            <div class="file-actions">
+                                <button class="btn btn-outline" onclick="downloadLowRes('file-002')">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn btn-secondary" onclick="useInOrder('file-002')">
+                                    Use in Order
+                                </button>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-preview">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="file-info">
+                                <h4>Business Card Template</h4>
+                                <p class="file-date">Dec 3, 2024</p>
+                                <span class="file-size">1.8 MB</span>
+                            </div>
+                            <div class="file-actions">
+                                <button class="btn btn-outline" onclick="downloadLowRes('file-003')">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn btn-secondary" onclick="useInOrder('file-003')">
+                                    Use in Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Settings Card -->
+        <div class="dashboard-container">
+            <div class="dashboard-grid">
+                <div class="dashboard-card account-settings-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-cog"></i> Account Settings</h3>
+                        <span class="card-subtitle">Manage your account</span>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <div class="setting-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Personal Information</h4>
+                                <p>Update your name, email, and contact details</p>
+                                <button class="btn btn-outline">Edit Profile</button>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Delivery Addresses</h4>
+                                <p>Manage your delivery and billing addresses</p>
+                                <button class="btn btn-outline">Manage Addresses</button>
+                            </div>
+                        </div>
+                        <div class="setting-item" style="opacity: 0.5; pointer-events: none;">
+                            <div class="setting-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Payment Methods</h4>
+                                <p>Payment methods are currently disabled</p>
+                                <button class="btn btn-outline" disabled>Coming Soon</button>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Notifications</h4>
+                                <p>Control how you receive updates about orders</p>
+                                <button class="btn btn-outline">Notification Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+
+    <script>
+        // Check if user is logged in
+        async function checkAuth() {
+            try {
+                // Check authentication via API
+                const response = await fetch('../api/auth/check.php');
+                const result = await response.json();
+                
+                if (result.success && result.user) {
+                    // User is authenticated, load their data
+                    loadUserData(result.user);
+                    loadDashboardData();
+                } else {
+                    // Not authenticated, redirect to login
+                    localStorage.removeItem('userData');
+                    localStorage.removeItem('isLoggedIn');
+                    window.location.href = 'login.html';
+                    return;
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+                // Fallback to localStorage check
+                const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+                if (!isLoggedIn) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+                loadUserData(JSON.parse(localStorage.getItem('userData') || '{}'));
+            }
+        }
+        
+        // Load user data into dashboard
+        function loadUserData(user) {
+            if (user.first_name && user.last_name) {
+                document.getElementById('user-name').textContent = `${user.first_name} ${user.last_name}`;
+            }
+            // Store user data for other functions
+            window.currentUser = user;
+        }
+        
+        // Load dashboard data from database
+        async function loadDashboardData() {
+            try {
+                const response = await fetch('../api/dashboard/data.php');
+                const data = await response.json();
+                
+                if (data.success) {
+                    updateStats(data.stats);
+                    updateRecentOrders(data.orders);
+                    updateSavedFiles(data.files);
+                } else {
+                    // If no real data, load demo data
+                    loadDemoData();
+                }
+            } catch (error) {
+                console.error('Dashboard data error:', error);
+                // Load demo data as fallback
+                loadDemoData();
+            }
+        }
+        
+        // Load demo data for new users
+        async function loadDemoData() {
+            try {
+                const response = await fetch('../api/dashboard/demo-data.php');
+                const data = await response.json();
+                
+                if (data.success) {
+                    updateStats(data.stats);
+                    updateRecentOrders(data.orders);
+                    updateSavedFiles(data.files);
+                    
+                    // Add demo notice
+                    const cardSubtitle = document.querySelector('.card-subtitle');
+                    if (cardSubtitle) {
+                        cardSubtitle.textContent = 'Sample data - Your real data will appear here';
+                    }
+                }
+            } catch (error) {
+                console.error('Demo data error:', error);
+            }
+        }
+        
+        // Update statistics
+        function updateStats(stats) {
+            if (stats) {
+                document.querySelector('.stat-item:nth-child(1) .stat-number').textContent = stats.total_orders || '0';
+                document.querySelector('.stat-item:nth-child(2) .stat-number').textContent = stats.total_files || '0';
+                document.querySelector('.stat-item:nth-child(3) .stat-number').textContent = stats.total_spent || '£0';
+            }
+        }
+        
+        // Update recent orders
+        function updateRecentOrders(orders) {
+            const ordersList = document.querySelector('.orders-list');
+            if (orders && orders.length > 0) {
+                ordersList.innerHTML = orders.map(order => `
+                    <div class="order-item">
+                        <div class="order-info">
+                            <h4>${order.product_name || 'Order'}</h4>
+                            <p class="order-date">${new Date(order.created_at).toLocaleDateString()}</p>
+                            <span class="order-status ${order.status}">${order.status}</span>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn btn-outline" onclick="downloadInvoice('${order.order_number}')">
+                                <i class="fas fa-download"></i>
+                                Invoice
+                            </button>
+                            <button class="btn btn-primary" onclick="reorder('${order.order_number}')">
+                                Reorder
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+        
+        // Update saved files
+        function updateSavedFiles(files) {
+            const filesList = document.querySelector('.files-list');
+            if (files && files.length > 0) {
+                filesList.innerHTML = files.map(file => `
+                    <div class="file-item">
+                        <div class="file-preview">
+                            <i class="fas fa-file-${getFileIcon(file.file_type)}"></i>
+                        </div>
+                        <div class="file-info">
+                            <h4>${file.original_filename}</h4>
+                            <p class="file-date">${new Date(file.upload_date).toLocaleDateString()}</p>
+                            <span class="file-size">${formatFileSize(file.file_size)}</span>
+                        </div>
+                        <div class="file-actions">
+                            <button class="btn btn-outline" onclick="downloadFile('${file.id}')">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                            <button class="btn btn-secondary" onclick="useInOrder('${file.id}')">
+                                Use in Order
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+        
+        // Helper functions
+        function getFileIcon(fileType) {
+            if (fileType.includes('pdf')) return 'pdf';
+            if (fileType.includes('image')) return 'image';
+            return 'alt';
+        }
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Dashboard functions
+        async function downloadInvoice(orderNumber) {
+            try {
+                const response = await fetch(`../api/invoices/download.php?order=${orderNumber}`);
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `invoice-${orderNumber}.pdf`;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                } else {
+                    alert('Invoice not found or not available for download');
+                }
+            } catch (error) {
+                console.error('Download error:', error);
+                alert('Error downloading invoice. Please try again.');
+            }
+        }
+
+        async function downloadFile(fileId) {
+            try {
+                const response = await fetch(`../api/files/download.php?id=${fileId}`);
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `file-${fileId}`;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                } else {
+                    alert('File not found or not available for download');
+                }
+            } catch (error) {
+                console.error('Download error:', error);
+                alert('Error downloading file. Please try again.');
+            }
+        }
+
+        function reorder(orderNumber) {
+            // Redirect to order page with order number for reordering
+            window.location.href = `../pages/order.html?reorder=${orderNumber}`;
+        }
+
+        function useInOrder(fileId) {
+            // Redirect to order page with file ID to use in new order
+            window.location.href = `../pages/order.html?file=${fileId}`;
+        }
+        
+        // Logout function
+        async function logout() {
+            try {
+                const response = await fetch('../api/auth/logout.php', {
+                    method: 'POST'
+                });
+                
+                localStorage.removeItem('userData');
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = '../index.html';
+            } catch (error) {
+                console.error('Logout error:', error);
+                // Force logout even if API fails
+                localStorage.removeItem('userData');
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = '../index.html';
+            }
+        }
+
+        // Quick action handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+
+            document.getElementById('new-order-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Redirecting to new order page...');
+                // window.location.href = '../pages/order.html';
+            });
+
+            document.getElementById('upload-files-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'file-upload.html';
+            });
+
+
+            document.getElementById('support-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = '../pages/contact.html';
+            });
+        });
+
+        // Load header component using centralized script
+        // The centralized header script will handle all initialization
+
+        // Load footer component using centralized script
+        // The centralized footer script will handle all initialization
+
+        // Mobile Menu Functionality is now handled by the centralized header script
+    </script>
+</body>
+</html>

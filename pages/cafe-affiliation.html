@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Affiliation Program | Easy Print Cafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .about-hero p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .affiliation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .affiliation-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 5px solid #597525;
+        }
+        
+        .affiliation-section h2 {
+            color: #597525;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .affiliation-section h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+        
+        .affiliation-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .affiliation-section ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .affiliation-section li {
+            margin-bottom: 0.5rem;
+            color: #444;
+            line-height: 1.5;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            border-color: #597525;
+            box-shadow: 0 4px 15px rgba(89, 117, 37, 0.1);
+        }
+        
+        .benefit-card h4 {
+            color: #597525;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .benefit-card p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .cta-section p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .cta-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .cta-btn:hover {
+            background: white;
+            color: #597525;
+        }
+        
+        .placeholder-text {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            color: #856404;
+            font-style: italic;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .affiliation-container {
+                padding: 1rem;
+            }
+            
+            .affiliation-header h1 {
+                font-size: 2rem;
+            }
+            
+            .affiliation-section {
+                padding: 1.5rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .benefit-card {
+                padding: 1.5rem;
+            }
+            
+            .cta-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="about-content">
+                <h1>Cafe Affiliation Program</h1>
+                <p>Join our network of partner cafes and help us make printing accessible to everyone in your community.</p>
+            </div>
+        </section>
+
+        <div class="affiliation-container">
+            
+            <div class="affiliation-section">
+                <h2>About Our Program</h2>
+                
+                <div class="placeholder-text">
+                    <strong>Placeholder Content:</strong> This section will contain information about the cafe affiliation program, how it works, and the benefits for cafe partners. Real copy to be provided later.
+                </div>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            
+            <div class="affiliation-section">
+                <h2>How It Works</h2>
+                
+                <div class="placeholder-text">
+                    <strong>Placeholder Content:</strong> This section will explain the process of becoming an affiliated cafe partner, including application process, setup requirements, and ongoing operations.
+                </div>
+                
+                <h3>Step 1: Application</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                <h3>Step 2: Setup</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                
+                <h3>Step 3: Launch</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>Increased Foot Traffic</h4>
+                    <div class="placeholder-text">
+                        <strong>Placeholder:</strong> Benefits for cafe partners will be detailed here.
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Additional Revenue</h4>
+                    <div class="placeholder-text">
+                        <strong>Placeholder:</strong> Revenue sharing and commission structure details.
+                    </div>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Community Service</h4>
+                    <div class="placeholder-text">
+                        <strong>Placeholder:</strong> How cafes help serve their local community.
+                    </div>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Marketing Support</h4>
+                    <div class="placeholder-text">
+                        <strong>Placeholder:</strong> Marketing materials and promotional support provided.
+                    </div>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Training & Support</h4>
+                    <div class="placeholder-text">
+                        <strong>Placeholder:</strong> Training programs and ongoing support for cafe staff.
+                    </div>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Flexible Hours</h4>
+                    <div class="placeholder-text">
+                        <strong>Placeholder:</strong> How the program works with existing cafe hours.
+                    </div>
+                    <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+                </div>
+            </div>
+            
+            <div class="affiliation-section">
+                <h2>Requirements</h2>
+                
+                <div class="placeholder-text">
+                    <strong>Placeholder Content:</strong> This section will outline the requirements for cafes to join the affiliation program, including space, equipment, and operational requirements.
+                </div>
+                
+                <h3>Space Requirements</h3>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore et dolore</li>
+                    <li>Ut enim ad minim veniam, quis nostrud exercitation</li>
+                </ul>
+                
+                <h3>Equipment Needs</h3>
+                <ul>
+                    <li>Duis aute irure dolor in reprehenderit in voluptate</li>
+                    <li>Excepteur sint occaecat cupidatat non proident</li>
+                    <li>Sunt in culpa qui officia deserunt mollit anim</li>
+                </ul>
+                
+                <h3>Operational Standards</h3>
+                <ul>
+                    <li>Id est laborum et dolorum fuga et harum quidem</li>
+                    <li>Rerum facilis est et expedita distinctio nam libero</li>
+                    <li>Temporibus autem quibusdam et aut officiis debitis</li>
+                </ul>
+            </div>
+            
+            <div class="affiliation-section">
+                <h2>Success Stories</h2>
+                
+                <div class="placeholder-text">
+                    <strong>Placeholder Content:</strong> This section will feature testimonials and case studies from successful cafe partners, showcasing the benefits and impact of the program.
+                </div>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            
+            <div class="cta-section">
+                <h2>Ready to Join Our Network?</h2>
+                <p>Become an Easy Print Cafe partner and help us make printing accessible to your community while growing your business.</p>
+                <a href="contact.html" class="cta-btn">Get Started Today</a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+    
+    <script>
+        // Mobile Menu Functionality is now handled by the centralized header script
+
+        // Header component is now loaded by centralized script
+
+        // Footer component is now loaded by centralized script
+    </script>
+</body>
+</html>

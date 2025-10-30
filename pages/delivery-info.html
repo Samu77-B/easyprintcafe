@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Information | Easy Print Cafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+        .delivery-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .delivery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .delivery-header h1 {
+            color: #597525;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .delivery-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .delivery-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .delivery-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .delivery-card:hover {
+            border-color: #597525;
+            box-shadow: 0 8px 25px rgba(89, 117, 37, 0.1);
+        }
+        
+        .delivery-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+        }
+        
+        .delivery-card h3 {
+            color: #597525;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .delivery-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .delivery-card p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .delivery-card ul {
+            color: #444;
+            padding-left: 1.5rem;
+        }
+        
+        .delivery-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .delivery-card .price {
+            background: #597525;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .delivery-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 5px solid #597525;
+        }
+        
+        .delivery-section h2 {
+            color: #597525;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .delivery-section h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            font-weight: 600;
+        }
+        
+        .delivery-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .delivery-section ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .delivery-section li {
+            margin-bottom: 0.5rem;
+            color: #444;
+            line-height: 1.5;
+        }
+        
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-table th {
+            background: #597525;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .timeline-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #444;
+        }
+        
+        .timeline-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .important-notice {
+            background: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .important-notice h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+        
+        .important-notice p {
+            color: #856404;
+            margin-bottom: 0;
+        }
+        
+        .collection-info {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .collection-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .collection-info p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .collection-info ul {
+            margin-bottom: 0;
+        }
+        
+        .collection-info li {
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .tracking-section {
+            background: #e8f5e8;
+            border: 2px solid #8eb442;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .tracking-section h3 {
+            color: #597525;
+            margin-bottom: 1rem;
+        }
+        
+        .tracking-section p {
+            margin-bottom: 1.5rem;
+            color: #2d5016;
+        }
+        
+        .tracking-btn {
+            background: #597525;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .tracking-btn:hover {
+            background: #4a5f1f;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .delivery-container {
+                padding: 1rem;
+            }
+            
+            .delivery-header h1 {
+                font-size: 2rem;
+            }
+            
+            .delivery-options {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .delivery-card {
+                padding: 1.5rem;
+            }
+            
+            .delivery-section {
+                padding: 1.5rem;
+            }
+            
+            .timeline-table {
+                font-size: 0.9rem;
+            }
+            
+            .timeline-table th,
+            .timeline-table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <main class="main">
+        <div class="delivery-container">
+            <div class="delivery-header">
+                <h1>Delivery <span class="highlight">Information</span></h1>
+                <p>We offer flexible delivery and collection options to suit your needs. Choose the option that works best for your timeline and budget.</p>
+            </div>
+            
+            <div class="delivery-options">
+                <div class="delivery-card">
+                    <span class="icon">🚚</span>
+                    <h3>Local Delivery</h3>
+                    <p>Free delivery within 5 miles of our shop. Perfect for local businesses and quick turnaround needs.</p>
+                    <ul>
+                        <li>Free within 5 miles</li>
+                        <li>Next business day delivery</li>
+                        <li>Professional courier service</li>
+                        <li>Delivery confirmation</li>
+                        <li>Monday - Friday only</li>
+                    </ul>
+                    <span class="price">FREE</span>
+                </div>
+                
+                <div class="delivery-card">
+                    <span class="icon">📦</span>
+                    <h3>UK Standard Delivery</h3>
+                    <p>Reliable delivery service across the UK using trusted courier partners.</p>
+                    <ul>
+                        <li>2-3 business days</li>
+                        <li>Tracked delivery</li>
+                        <li>Signature required</li>
+                        <li>Insurance included</li>
+                        <li>Weekend delivery available</li>
+                    </ul>
+                    <span class="price">From £8.99</span>
+                </div>
+                
+                <div class="delivery-card">
+                    <span class="icon">⚡</span>
+                    <h3>Express Delivery</h3>
+                    <p>Fast delivery service for urgent orders. Next day delivery guaranteed.</p>
+                    <ul>
+                        <li>Next business day</li>
+                        <li>Before 12pm delivery</li>
+                        <li>Priority handling</li>
+                        <li>Real-time tracking</li>
+                        <li>Weekend delivery</li>
+                    </ul>
+                    <span class="price">From £15.99</span>
+                </div>
+                
+                <div class="delivery-card">
+                    <span class="icon">🏪</span>
+                    <h3>Collection</h3>
+                    <p>Pick up your order from our affiliated cafes or Royal Mail collection points. Free and convenient.</p>
+                    <ul>
+                        <li>Free collection</li>
+                        <li>Multiple pickup locations</li>
+                        <li>Royal Mail collection points</li>
+                        <li>Affiliated cafe partners</li>
+                        <li>Flexible pickup times</li>
+                    </ul>
+                    <span class="price">FREE</span>
+                </div>
+            </div>
+            
+            <div class="delivery-section">
+                <h2>Delivery Timeframes</h2>
+                <p>Our delivery times are calculated from the date your order is ready for dispatch. Production times are additional and vary by product type.</p>
+                
+                <table class="timeline-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Delivery Time</th>
+                            <th>Cut-off Time</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Local Delivery</td>
+                            <td>Next business day</td>
+                            <td>2:00 PM</td>
+                            <td>Monday - Friday only</td>
+                        </tr>
+                        <tr>
+                            <td>UK Standard</td>
+                            <td>2-3 business days</td>
+                            <td>4:00 PM</td>
+                            <td>Weekend delivery available</td>
+                        </tr>
+                        <tr>
+                            <td>Express Delivery</td>
+                            <td>Next business day</td>
+                            <td>12:00 PM</td>
+                            <td>Before 12pm delivery</td>
+                        </tr>
+                        <tr>
+                            <td>Collection</td>
+                            <td>Same day</td>
+                            <td>Various</td>
+                            <td>Affiliated cafes & Royal Mail points</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="important-notice">
+                <h3>⚠️ Important Delivery Information</h3>
+                <p>Please ensure someone is available to receive your delivery. If no one is available, the courier will attempt redelivery or leave the package in a safe location. Failed deliveries may incur additional charges.</p>
+            </div>
+            
+            <div class="collection-info">
+                <h3>Collection Information</h3>
+                <p>Pick up your order from our affiliated cafe partners or Royal Mail collection points. Here's what you need to know:</p>
+                <ul>
+                    <li><strong>Affiliated Cafes:</strong> Multiple locations across London with flexible pickup times</li>
+                    <li><strong>Royal Mail Points:</strong> Over 11,500 collection points nationwide</li>
+                    <li><strong>Identification:</strong> Please bring a form of ID and your order confirmation</li>
+                    <li><strong>Notification:</strong> You'll receive a text/email when your order is ready for collection</li>
+                    <li><strong>Collection Code:</strong> Use your unique collection code at the pickup location</li>
+                    <li><strong>Storage:</strong> Orders can be stored for up to 18 days after delivery to collection point</li>
+                </ul>
+            </div>
+            
+            <div class="delivery-section">
+                <h2>Delivery Areas & Zones</h2>
+                
+                <h3>Affiliated Cafe Network</h3>
+                <ul>
+                    <li>Multiple locations across central London</li>
+                    <li>Includes: Westminster, Green Park, Victoria, Belgravia, Chelsea, Camden, Shoreditch</li>
+                    <li>Extended opening hours for convenient pickup</li>
+                    <li>Professional staff trained to handle print orders</li>
+                </ul>
+                
+                <h3>Royal Mail Collection Network</h3>
+                <ul>
+                    <li>Over 11,500 collection points nationwide</li>
+                    <li>Includes Post Offices, delivery offices, and parcel shops</li>
+                    <li>Find your nearest location using Royal Mail's online locator</li>
+                    <li>Standard opening hours (Monday-Friday, some Saturday availability)</li>
+                </ul>
+                
+                <h3>UK Delivery Zones</h3>
+                <ul>
+                    <li><strong>Zone 1:</strong> London & Home Counties - 2-3 business days</li>
+                    <li><strong>Zone 2:</strong> Midlands & North England - 3-4 business days</li>
+                    <li><strong>Zone 3:</strong> Scotland & Wales - 4-5 business days</li>
+                    <li><strong>Zone 4:</strong> Northern Ireland - 5-6 business days</li>
+                </ul>
+                
+                <h3>International Delivery</h3>
+                <p>We can arrange international delivery for large orders. Please contact us for quotes and delivery times to your country.</p>
+            </div>
+            
+            <div class="delivery-section">
+                <h2>Special Delivery Requirements</h2>
+                
+                <h3>Large Format Items</h3>
+                <ul>
+                    <li>Special handling required for banners, signs, and large displays</li>
+                    <li>Delivery may require appointment booking</li>
+                    <li>Additional charges may apply for oversized items</li>
+                    <li>White-glove delivery service available</li>
+                </ul>
+                
+                <h3>Fragile Items</h3>
+                <ul>
+                    <li>Extra packaging for lightboxes and displays</li>
+                    <li>Careful handling instructions</li>
+                    <li>Insurance included in delivery cost</li>
+                    <li>Signature required upon delivery</li>
+                </ul>
+                
+                <h3>Bulk Orders</h3>
+                <ul>
+                    <li>Pallet delivery for large quantities</li>
+                    <li>Forklift access required</li>
+                    <li>Advance notice required</li>
+                    <li>Special pricing available</li>
+                </ul>
+            </div>
+            
+            <div class="tracking-section">
+                <h3>Track Your Order</h3>
+                <p>Once your order is dispatched, you'll receive tracking information to monitor your delivery in real-time.</p>
+                <a href="#" class="tracking-btn">Track Your Order</a>
+            </div>
+            
+            <div class="delivery-section">
+                <h2>Delivery Terms & Conditions</h2>
+                
+                <h3>Delivery Attempts</h3>
+                <ul>
+                    <li>We will attempt delivery up to 3 times</li>
+                    <li>Failed deliveries may incur additional charges</li>
+                    <li>Orders can be redirected to alternative addresses</li>
+                    <li>Collection from courier depot is available</li>
+                </ul>
+                
+                <h3>Damaged Goods</h3>
+                <ul>
+                    <li>Inspect your order immediately upon delivery</li>
+                    <li>Report any damage within 48 hours</li>
+                    <li>We will replace damaged items free of charge</li>
+                    <li>Return costs are covered by us</li>
+                </ul>
+                
+                <h3>Delivery Charges</h3>
+                <ul>
+                    <li>Delivery charges are non-refundable</li>
+                    <li>Additional charges may apply for remote areas</li>
+                    <li>Weekend and evening delivery available at extra cost</li>
+                    <li>Free delivery thresholds may apply</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+    
+    <script>
+        // Mobile Menu Functionality is now handled by the centralized header script
+
+        // Header component is now loaded by centralized script
+
+        // Footer component is now loaded by centralized script
+    </script>
+</body>
+</html>

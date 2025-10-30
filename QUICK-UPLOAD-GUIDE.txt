@@ -1,0 +1,55 @@
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║       QUICK UPLOAD GUIDE - /build/ Directory             ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+
+┌───────────────────────────────────────────────────────────┐
+│  WHAT WAS FIXED:                                          │
+│  • Header/footer not loading on product pages             │
+│  • Path detection for /build/ subdirectory                │
+└───────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────┐
+│  FILES TO UPLOAD (Priority Order):                        │
+└───────────────────────────────────────────────────────────┘
+
+  1. js/header-init.js       →  /build/js/header-init.js
+  2. js/footer-init.js       →  /build/js/footer-init.js
+  
+  THEN CHECK IF THESE EXIST ON SERVER:
+  
+  3. components/header.html  →  /build/components/header.html
+  4. components/footer.html  →  /build/components/footer.html
+  5. components/header.css   →  /build/components/header.css
+  6. components/footer.css   →  /build/components/footer.css
+
+┌───────────────────────────────────────────────────────────┐
+│  AFTER UPLOADING:                                         │
+└───────────────────────────────────────────────────────────┘
+
+  1. Clear browser cache (Ctrl+Shift+Delete)
+  2. Visit: easyprintcafe.com/build/product.php?slug=feather-flag
+  3. Check: Header at top? Footer at bottom?
+  4. Open Console (F12): No errors?
+
+┌───────────────────────────────────────────────────────────┐
+│  FILE SIZES (for verification):                           │
+└───────────────────────────────────────────────────────────┘
+
+  header-init.js  : ~16 KB
+  footer-init.js  : ~2.9 KB
+  header.html     : ~8 KB
+  footer.html     : ~6 KB
+  header.css      : ~23 KB
+  footer.css      : ~7 KB
+
+┌───────────────────────────────────────────────────────────┐
+│  NEED HELP?                                               │
+└───────────────────────────────────────────────────────────┘
+
+  📖 Full Documentation: UPLOAD-PACKAGE-UPDATED.md
+  ☑️  Detailed Checklist: UPLOAD-CHECKLIST-UPDATED.txt
+
+═══════════════════════════════════════════════════════════════
+

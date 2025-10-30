@@ -1,0 +1,56 @@
+═══════════════════════════════════════════════════════════════════
+               VISUAL UPLOAD MAP
+═══════════════════════════════════════════════════════════════════
+
+YOUR LOCAL FILES                    UPLOAD TO SERVER
+─────────────────                   ────────────────
+
+📁 C:\Websites\EasyPrintCafe.com\Website25\02\
+│
+├── 📂 js/
+│   ├── 📄 header-init.js    ───➜   /build/js/header-init.js
+│   └── 📄 footer-init.js    ───➜   /build/js/footer-init.js
+│
+└── 📂 components/
+    ├── 📄 header.html       ───➜   /build/components/header.html
+    ├── 📄 footer.html       ───➜   /build/components/footer.html
+    ├── 📄 header.css        ───➜   /build/components/header.css
+    └── 📄 footer.css        ───➜   /build/components/footer.css
+
+
+═══════════════════════════════════════════════════════════════════
+               SERVER STRUCTURE AFTER UPLOAD
+═══════════════════════════════════════════════════════════════════
+
+📁 public_html/
+└── 📂 build/
+    ├── 📂 js/
+    │   ├── ✅ header-init.js  (UPDATED - 16.6 KB)
+    │   └── ✅ footer-init.js  (UPDATED - 3.7 KB)
+    │
+    ├── 📂 components/
+    │   ├── ✅ header.html     (8 KB)
+    │   ├── ✅ footer.html     (6 KB)
+    │   ├── ✅ header.css      (23 KB)
+    │   └── ✅ footer.css      (7 KB)
+    │
+    ├── 📂 pages/
+    │   └── products.php       (will now show header/footer)
+    │
+    ├── 📂 api/
+    ├── 📂 brand/
+    ├── product.php            (will now show header/footer)
+    └── index.html
+
+═══════════════════════════════════════════════════════════════════
+
+                    QUICK STEPS:
+
+1️⃣  Connect to Hostinger (File Manager or FTP)
+2️⃣  Navigate to: /public_html/build/
+3️⃣  Upload 6 files to correct folders
+4️⃣  Clear browser cache
+5️⃣  Test: easyprintcafe.com/build/product.php?slug=feather-flag
+
+═══════════════════════════════════════════════════════════════════
+

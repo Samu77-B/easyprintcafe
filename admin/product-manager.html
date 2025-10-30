@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Manager | Easy Print Cafe Admin</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #d35400;
+        }
+        
+        .tabs {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab-btn:hover {
+            background: #f9f9f9;
+        }
+        
+        .tab-btn.active {
+            color: #d35400;
+            border-bottom-color: #d35400;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .product-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-card .category {
+            background: #d35400;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .product-card .status {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        
+        .status.active {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .status.inactive {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .product-card .actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-view {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-view:hover {
+            background: #2980b9;
+        }
+        
+        .btn-edit {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .btn-edit:hover {
+            background: #e67e22;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card h3 {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d35400;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 50px;
+            color: #999;
+        }
+        
+        .empty-state i {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-box"></i> Product Manager</h1>
+            <p>Manage your Easy Print Cafe products</p>
+        </div>
+        
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <h3>Total Products</h3>
+                <div class="value" id="total-products">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Products</h3>
+                <div class="value" id="active-products">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Categories</h3>
+                <div class="value" id="total-categories">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Featured Products</h3>
+                <div class="value" id="featured-products">-</div>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab('all')">
+                    <i class="fas fa-th"></i> All Products
+                </button>
+                <button class="tab-btn" onclick="switchTab('categories')">
+                    <i class="fas fa-folder"></i> Categories
+                </button>
+                <button class="tab-btn" onclick="switchTab('add')">
+                    <i class="fas fa-plus"></i> Quick View
+                </button>
+            </div>
+            
+            <div id="tab-all" class="tab-content active">
+                <div id="products-loading" class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading products...
+                </div>
+                <div id="products-grid" class="products-grid"></div>
+            </div>
+            
+            <div id="tab-categories" class="tab-content">
+                <div id="categories-loading" class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading categories...
+                </div>
+                <div id="categories-list"></div>
+            </div>
+            
+            <div id="tab-add" class="tab-content">
+                <h2>Quick Reference</h2>
+                <p style="margin: 20px 0;">To add products, use phpMyAdmin or the following SQL template:</p>
+                <pre style="background: #f5f5f5; padding: 20px; border-radius: 4px; overflow-x: auto;">
+INSERT INTO products (
+    category_id, name, slug, short_description, full_description,
+    features, specifications, main_image, turnaround_time,
+    weather_resistant, is_active, is_featured
+) VALUES (
+    1, -- category_id (1=Flags, 2=Exhibition, 3=Outdoor, 4=Small Format)
+    'Product Name',
+    'product-slug',
+    'Short description here',
+    'Full detailed description here',
+    '• Feature 1\n• Feature 2\n• Feature 3',
+    'Material: Example\nSize: Example',
+    '/images/products/your-image.png',
+    '3-5 working days',
+    1, -- weather_resistant (0 or 1)
+    1, -- is_active (0 or 1)
+    0  -- is_featured (0 or 1)
+);
+                </pre>
+                
+                <h3 style="margin-top: 30px;">Category IDs:</h3>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li><strong>1</strong> - Flags & Banners</li>
+                    <li><strong>2</strong> - Exhibition Displays</li>
+                    <li><strong>3</strong> - Outdoor Signage</li>
+                    <li><strong>4</strong> - Small Format Printing</li>
+                </ul>
+                
+                <h3 style="margin-top: 30px;">Product URLs:</h3>
+                <p style="margin: 10px 0;">After adding a product with slug "example-product", access it at:</p>
+                <code style="background: #f5f5f5; padding: 10px; display: block; border-radius: 4px;">
+                    https://easyprintcafe.com/product.php?slug=example-product
+                </code>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let allProducts = [];
+        let allCategories = [];
+        
+        // Load data on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+            loadCategories();
+        });
+        
+        async function loadProducts() {
+            try {
+                const response = await fetch('../api/products/get.php');
+                const data = await response.json();
+                
+                if (data.success) {
+                    allProducts = data.products;
+                    displayProducts(allProducts);
+                    updateStats();
+                }
+            } catch (error) {
+                console.error('Error loading products:', error);
+                document.getElementById('products-loading').innerHTML = 
+                    '<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>Error loading products</p></div>';
+            }
+        }
+        
+        async function loadCategories() {
+            try {
+                const response = await fetch('../api/products/categories.php');
+                const data = await response.json();
+                
+                if (data.success) {
+                    allCategories = data.categories;
+                    displayCategories(allCategories);
+                }
+            } catch (error) {
+                console.error('Error loading categories:', error);
+            }
+        }
+        
+        function displayProducts(products) {
+            const grid = document.getElementById('products-grid');
+            document.getElementById('products-loading').style.display = 'none';
+            
+            if (products.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="fas fa-box-open"></i><p>No products found</p></div>';
+                return;
+            }
+            
+            grid.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <img src="${p.main_image || '../images/products/placeholder.png'}" alt="${p.name}">
+                    <div>
+                        <span class="category">${p.category_name}</span>
+                        <span class="status ${p.is_active ? 'active' : 'inactive'}">
+                            ${p.is_active ? 'Active' : 'Inactive'}
+                        </span>
+                    </div>
+                    <h3>${p.name}</h3>
+                    <p style="color: #666; font-size: 14px; margin-bottom: 10px;">
+                        ${p.short_description.substring(0, 80)}...
+                    </p>
+                    <div class="actions">
+                        <a href="../pages/printing-services.html" target="_blank" class="btn btn-view">
+                            <i class="fas fa-eye"></i> View
+                        </a>
+                        <button class="btn btn-edit" onclick="alert('Edit functionality coming soon! Use phpMyAdmin for now.')">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function displayCategories(categories) {
+            const list = document.getElementById('categories-list');
+            document.getElementById('categories-loading').style.display = 'none';
+            
+            list.innerHTML = categories.map(c => `
+                <div style="background: #f9f9f9; padding: 20px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid #d35400;">
+                    <h3 style="margin-bottom: 10px;">${c.name}</h3>
+                    <p style="color: #666; margin-bottom: 10px;">${c.description || 'No description'}</p>
+                    <p style="font-size: 14px; color: #999;">
+                        <strong>Slug:</strong> ${c.slug} | 
+                        <strong>Products:</strong> ${c.product_count} |
+                        <strong>Status:</strong> ${c.is_active ? 'Active' : 'Inactive'}
+                    </p>
+                </div>
+            `).join('');
+        }
+        
+        function updateStats() {
+            document.getElementById('total-products').textContent = allProducts.length;
+            document.getElementById('active-products').textContent = 
+                allProducts.filter(p => p.is_active).length;
+            document.getElementById('featured-products').textContent = 
+                allProducts.filter(p => p.is_featured).length;
+            document.getElementById('total-categories').textContent = allCategories.length;
+        }
+        
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student & Academic Solutions | Easy Print Cafe</title>
+    <link rel="icon" type="image/png" href="../brand/epcFav.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Student & Academic Page Specific Styles */
+        .solution-hero {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .solution-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .solution-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .solution-hero p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .solution-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .solution-section {
+            padding: 80px 0;
+        }
+        
+        .solution-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 3rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(89, 117, 37, 0.15);
+            border-color: #8eb442;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8eb442, #7a9c3a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .service-card h3 {
+            color: #597525;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #8eb442;
+            font-weight: bold;
+        }
+        
+        .pricing-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border-color: #597525;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(89, 117, 37, 0.2);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #597525;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            color: #597525;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #597525;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-period {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #444;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-btn {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(89, 117, 37, 0.3);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(89, 117, 37, 0.1);
+            border-color: #8eb442;
+        }
+        
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8eb442, #7a9c3a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            margin: 0 auto 1rem auto;
+            flex-shrink: 0;
+        }
+        
+        .benefit-card h4 {
+            color: #597525;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #597525 0%, #8eb442 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .cta-btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn-primary:hover {
+            background: white;
+            color: #597525;
+            transform: translateY(-2px);
+        }
+        
+        .cta-btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn-outline:hover {
+            background: white;
+            color: #597525;
+        }
+        
+        .related-solutions {
+            padding: 60px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .related-solutions h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .related-solutions p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .related-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .related-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .related-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(89, 117, 37, 0.15);
+            border-color: #8eb442;
+            background: #f8f9fa;
+        }
+        
+        .related-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8eb442, #7a9c3a);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .related-text h3 {
+            color: #597525;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 0.3rem 0;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .related-text p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .solution-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .solution-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-features {
+                gap: 1rem;
+            }
+            
+            .hero-feature {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Centralized Header Initialization Script -->
+    <script src="../js/header-init.js"></script>
+    
+    <script>
+        // Header component is now loaded by centralized script
+    </script>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="solution-hero">
+            <div class="solution-hero-content">
+                <h1>Student & Academic Solutions</h1>
+                <p>Specialized printing services designed for students, researchers, and academic institutions. Get professional results at student-friendly prices with convenient delivery options.</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span>Student Discounts</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <span>Thesis Printing</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <span>Research Posters</span>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <span>Campus Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="solution-section">
+            <div class="solution-content">
+                <h2 class="section-title">Our Academic Services</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Thesis & Dissertation</h3>
+                        <p>Professional thesis and dissertation printing with binding options for academic submissions.</p>
+                        <ul class="service-features">
+                            <li>High-quality paper options</li>
+                            <li>Professional binding</li>
+                            <li>Rush order support</li>
+                            <li>Digital and hard copy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Research Posters</h3>
+                        <p>Large format poster printing for conferences, presentations, and academic exhibitions.</p>
+                        <ul class="service-features">
+                            <li>Multiple size options</li>
+                            <li>High-resolution printing</li>
+                            <li>Waterproof materials</li>
+                            <li>Rolling tube packaging</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Assignment Printing</h3>
+                        <p>Fast and reliable printing services for essays, reports, and coursework submissions.</p>
+                        <ul class="service-features">
+                            <li>Same-day printing</li>
+                            <li>Multiple format support</li>
+                            <li>Quality assurance</li>
+                            <li>Bulk order discounts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3>Academic Materials</h3>
+                        <p>Specialized printing for course materials, study guides, and academic resources.</p>
+                        <ul class="service-features">
+                            <li>Course packs</li>
+                            <li>Study materials</li>
+                            <li>Reference sheets</li>
+                            <li>Custom formatting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section">
+            <div class="solution-content">
+                <h2 class="section-title">Student Pricing Plans</h2>
+                
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <h3>Basic Student</h3>
+                        <div class="price">£5</div>
+                        <div class="price-period">per month</div>
+                        <ul class="pricing-features">
+                            <li>25% discount on all printing</li>
+                            <li>Free delivery to accommodation</li>
+                            <li>Basic file setup help</li>
+                            <li>Online account access</li>
+                            <li>Email support</li>
+                        </ul>
+                        <button class="pricing-btn">Join Basic</button>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <h3>Premium Student</h3>
+                        <div class="price">£8</div>
+                        <div class="price-period">per month</div>
+                        <ul class="pricing-features">
+                            <li>40% discount on all printing</li>
+                            <li>Free delivery to accommodation</li>
+                            <li>Full file setup assistance</li>
+                            <li>Priority customer support</li>
+                            <li>Mobile app access</li>
+                            <li>Special thesis printing rates</li>
+                            <li>Rush order discounts</li>
+                        </ul>
+                        <button class="pricing-btn">Join Premium</button>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Annual Student</h3>
+                        <div class="price">£60</div>
+                        <div class="price-period">per year</div>
+                        <ul class="pricing-features">
+                            <li>40% discount on all printing</li>
+                            <li>Free delivery to accommodation</li>
+                            <li>Full file setup assistance</li>
+                            <li>Priority customer support</li>
+                            <li>Mobile app access</li>
+                            <li>Special thesis printing rates</li>
+                            <li>2 months free!</li>
+                        </ul>
+                        <button class="pricing-btn">Join Annual</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="solution-section">
+            <div class="solution-content">
+                <h2 class="section-title">Why Students Choose Us</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-pound-sign"></i>
+                        </div>
+                        <h4>Student-Friendly Pricing</h4>
+                        <p>Special discounts and rates designed specifically for student budgets.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Campus Delivery</h4>
+                        <p>Free delivery directly to your dorm, library, or campus location.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Fast Turnaround</h4>
+                        <p>Quick printing services to meet tight academic deadlines.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>Academic Expertise</h4>
+                        <p>Understanding of academic requirements and formatting standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Solutions Section -->
+        <section class="related-solutions">
+            <div class="solution-content">
+                <h2>Explore More Solutions</h2>
+                <p>Discover our other specialized printing services</p>
+                <div class="related-links">
+                    <a href="cafe-restaurant.html" class="related-link">
+                        <div class="related-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="related-text">
+                            <h3>Cafe & Restaurant</h3>
+                            <p>Menu printing and food business solutions</p>
+                        </div>
+                    </a>
+                    <a href="corporate-office.html" class="related-link">
+                        <div class="related-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="related-text">
+                            <h3>Corporate Office</h3>
+                            <p>Professional business printing solutions</p>
+                        </div>
+                    </a>
+                    <a href="events-trade-shows.html" class="related-link">
+                        <div class="related-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="related-text">
+                            <h3>Events & Trade Shows</h3>
+                            <p>Exhibition stands and event materials</p>
+                        </div>
+                    </a>
+                    <a href="printing-services.html" class="related-link">
+                        <div class="related-icon">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <div class="related-text">
+                            <h3>All Services</h3>
+                            <p>Complete range of printing solutions</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Start Your Academic Journey?</h2>
+                <p>Join thousands of students who trust us with their academic printing needs.</p>
+                <div class="cta-buttons">
+                    <a href="student-print.html" class="cta-btn cta-btn-primary">Join Student Program</a>
+                    <a href="contact.html" class="cta-btn cta-btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Centralized Footer Initialization Script -->
+    <script src="../js/footer-init.js"></script>
+    
+    <script>
+        // Footer component is now loaded by centralized script
+    </script>
+</body>
+</html>
